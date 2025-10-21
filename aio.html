@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Lesson Title: All in One View</title>
+<title>RNA-seq: from counts to DE genes: All in One View</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="assets/styles.css">
 <script src="assets/scripts.js" type="text/javascript"></script><!-- mathjax --><script type="text/x-mathjax-config">
@@ -20,27 +20,27 @@
         processEscapes: true
       }
     });
-    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><!-- Responsive Favicon for The Carpentries --><link rel="apple-touch-icon" sizes="180x180" href="favicons/uom/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicons/uom/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicons/uom/favicon-16x16.png">
-<link rel="manifest" href="favicons/uom/site.webmanifest">
-<link rel="mask-icon" href="favicons/uom/safari-pinned-tab.svg" color="#5bbad5">
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><!-- Responsive Favicon for The Carpentries --><link rel="apple-touch-icon" sizes="180x180" href="favicons/mb/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/mb/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/mb/favicon-16x16.png">
+<link rel="manifest" href="favicons/mb/site.webmanifest">
+<link rel="mask-icon" href="favicons/mb/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
 </head>
 <body>
-    <header id="top" class="navbar navbar-expand-md top-nav uom"><svg xmlns="http://www.w3.org/2000/svg" class="d-none"><symbol id="check2" viewbox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path></symbol><symbol id="circle-half" viewbox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path></symbol><symbol id="moon-stars-fill" viewbox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path><path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path></symbol><symbol id="sun-fill" viewbox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path></symbol></svg><a class="visually-hidden-focusable skip-link" href="#main-content">Skip to main content</a>
+    <header id="top" class="navbar navbar-expand-md top-nav mb"><svg xmlns="http://www.w3.org/2000/svg" class="d-none"><symbol id="check2" viewbox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path></symbol><symbol id="circle-half" viewbox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path></symbol><symbol id="moon-stars-fill" viewbox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path><path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path></symbol><symbol id="sun-fill" viewbox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path></symbol></svg><a class="visually-hidden-focusable skip-link" href="#main-content">Skip to main content</a>
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="uom-logo" alt="Lesson Description" src="assets/images/uom-logo.svg"><span class="badge text-bg-danger">
-          <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
+        <img id="mb-logo" alt="RNA-seq: from counts to DE genes" src="assets/images/mb-logo.svg"><span class="badge text-bg-warning">
+          <abbr title="This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.">
             <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link alert-link">
-              <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
-              Pre-Alpha
+              <i aria-hidden="true" class="icon" data-feather="alert-triangle" style="border-radius: 5px"></i>
+              Alpha
             </a>
-            <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+            <span class="visually-hidden">This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.</span>
           </abbr>
         </span>
 
@@ -85,16 +85,16 @@
 </div>
     </div>
   </div>
-  <hr></header><nav class="navbar navbar-expand-xl bottom-nav uom" aria-label="Main Navigation"><div class="container-fluid nav-container">
+  <hr></header><nav class="navbar navbar-expand-xl bottom-nav mb" aria-label="Main Navigation"><div class="container-fluid nav-container">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
       <span class="menu-title">Menu</span>
     </button>
     <div class="nav-logo">
-      <img class="small-logo" alt="Lesson Description" src="assets/images/uom-logo-sm.svg">
+      <img class="small-logo" alt="RNA-seq: from counts to DE genes" src="assets/images/mb-logo-sm.svg">
 </div>
     <div class="lesson-title-md">
-      Lesson Title
+      RNA-seq: from counts to DE genes
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -105,7 +105,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            Lesson Title
+            RNA-seq: from counts to DE genes
           </span>
         </li>
         <li class="nav-item">
@@ -141,14 +141,14 @@
   </div>
 <!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
-  Lesson Title
+  RNA-seq: from counts to DE genes
 </div>
 
 <aside class="col-md-12 lesson-progress"><div style="width: %" class="percentage">
     %
   </div>
-  <div class="progress uom">
-    <div class="progress-bar uom" role="progressbar" style="width: %" aria-valuenow="" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress mb">
+    <div class="progress-bar mb" role="progressbar" style="width: %" aria-valuenow="" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -243,7 +243,43 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction.html">1. Using RMarkdown</a>
+        <a href="01-introduction.html">1. Introduction</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="02-filtering-visualisation-normalisation.html">2. First steps: filtering, visualisation, and basic normalisation</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush4">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading4">
+        <a href="03-de-with-limma.html">3. Differential expression with limma</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush5">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading5">
+        <a href="04-summary.html">4. Summary and exercise</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -306,11 +342,11 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="aio-introduction"><p>Content from <a href="introduction.html">Using RMarkdown</a></p>
+<section id="aio-01-introduction"><p>Content from <a href="01-introduction.html">Introduction</a></p>
 <hr>
 <p>Last updated on 2025-10-21 |
 
-        <a href="https://github.com/melbournebioinformatics/workbench-template-rmd/edit/main/episodes/introduction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/01-introduction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -322,8 +358,7 @@
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How do you write a lesson using R Markdown and
-<a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
+<li>FIXME</li>
 </ul>
 </div>
 </div>
@@ -333,9 +368,7 @@
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested
-challenge blocks</li>
+<li>FIXME</li>
 </ul>
 </div>
 </div>
@@ -345,129 +378,359 @@ challenge blocks</li>
 <section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <hr class="half-width">
-<p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.txt" class="external-link">Pandoc-flavored Markdown</a>
-for static files and <a href="https://rmarkdown.rstudio.com/" class="external-link">R
-Markdown</a> for dynamic files that can render code into output. Please
-refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson template:</p>
+<p>Comparing gene expression, i.e. the amount of RNA transcript, in
+different experimental conditions provides important biological
+insights. For example, comparing gene expression in cancer and
+non-cancer tissue gives us insights into the biology of cancer. While
+there are many ways of measuring gene expression, the focus of this
+workshop will be (bulk) <em>RNA-seq</em>, a technology which (nominally)
+measures gene expression across the whole transcriptome,
+i.e. <em>all</em> RNA transcripts, in a sample.</p>
+<p>The main aim of this workshop is to show you how to go from a “counts
+table” of RNA-seq data to a ranked list of differentially expressed (DE)
+genes using R and statistical software packages from Bioconductor (note:
+basic knowledge of R will be assumed). This aim may seem modest, but our
+approach will be to carefully discuss each step along the way. The
+motivation for this is twofold: (1) to give you some understanding and
+thus confidence in what you’re doing; and (2) to give you some skills to
+judge whether the DE results you obtain are likely to be trustworthy or
+rubbish.</p>
+<p>The second motivation is important. In our context, rubbish DE
+results take two forms: <em>missed discoveries</em> (i.e. failing to
+infer a gene to be DE when it really is DE) or <em>false
+discoveries</em> (i.e. inferring a gene to be DE when it’s actually not
+DE). Rubbish results are a real danger in the following way: you can
+competently do all the steps in this workshop and still arrive at
+rubbish! How is this possible? Because some data sets aren’t amenable to
+the kinds of analyses we’ll be discussing, and it’s important to know
+when this occurs (if you care about the results!). Such data sets are
+typically problematic or difficult in some way and will require
+techniques and strategies beyond those contained in this workshop to
+obtain non-rubbish results. The good news, however, is that many data
+sets are amenable to the analyses we’ll discuss.</p>
+<p><em>Important note</em>. Our starting point for RNA-seq analysis will
+be a `table of counts’; we won’t begin from raw sequencing data (in the
+form of .fastq files). There’s several reasons for this. Firstly, going
+from raw sequencing data to a table of counts can be computationally
+intensive and a little involved. Secondly, because of this, workshops
+often fail to spend enough time on the (more important) statistical part
+that comes after this, i.e. analysing the table of counts. Thirdly, many
+people have no interest in processing raw sequencing data; they’re
+simply interested in analysing one of vast number of publicly available
+counts tables of RNA-seq data. If you’ve generated raw sequencing data
+of your own (or want to look at publicly available raw sequencing files)
+then you should look at other workshops for how to go from this data to
+a table of counts. But, if you’ve got a table of counts that you want to
+analyse, then this is the workshop for you!</p>
+</section><section><h2 class="section-heading" id="some-background">Some background<a class="anchor" aria-label="anchor" href="#some-background"></a>
+</h2>
+<hr class="half-width">
+<p>RNA-seq involves several steps, as summarised in this figure:</p>
+<figure><img src="fig/rna-seq-steps.png" style="width:90.0%" class="figure mx-auto d-block"></figure><p>We could say a lot more about each step, but this isn’t our focus.
+For us, the important thing to know is that after this whole process we
+arrive at a <em>table of counts</em>—the fundamental object of RNA-seq
+data analysis. For example, here’s a made up table of counts for two
+groups (A and B) each with three biological replicates (using the
+typical ‘genes rows, samples in columns’ convention):</p>
+<figure><img src="fig/table-of-counts.png" style="width:80.0%" class="figure mx-auto d-block"></figure><p>The counts quantify expression: more counts, more expression (roughly
+speaking—see below). The fundamental question we want to ask is: which
+genes are DE between the groups? (e.g. is Gene 3 DE?)</p>
+<p>Before proceeding, some important comments about replicates:</p>
 <ol style="list-style-type: decimal">
-<li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
+<li>If you don’t have replicates (ideally for all groups), STOP! You’ll
+likely produce rubbish results (actually statistical tools will often
+give you an error in this situation, but not always!). Here “replicates”
+means <em>biological</em> replicates (data collected from distinct
+individuals), not <em>technical</em> replicates (data repeatedly
+collected from the same individual), a distinction nicely depicted in
+the figure below. Biological replicates are essential because you cannot
+do rigorous RNA-seq analysis (i.e. statistics) without them. Why? There
+are many reasons, e.g. you’ll have no way of estimating the (biological)
+variation, i.e. “noise”, in your data and so no way of properly
+comparing any “signal” (of DE) to the “noise” (actually there are some
+ways around this issue but they’re not recommended). Thus, 2 replicates
+is a minimum and 3+ replicates (depending on the context and situation)
+are recommended.</li>
 </ol>
-<div id="challenge-1-can-you-do-it" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?</h3>
-<div class="callout-content">
-<p>What is the output of this command?</p>
+<figure><img src="fig/replicates.png" style="width:50.0%" class="figure mx-auto d-block"></figure><ol start="2" style="list-style-type: decimal">
+<li>If you have technical replicates, PROCEED CAREFULLY! They shouldn’t
+be analysed as if they were separate (independent) samples. Why? To see
+the main reason, consider an example: suppose one of your groups
+consists of three individuals each with 2 technical replications, making
+3x2 = 6 samples in that group. It may seem like there’s 6 samples in
+that group for doing the relevant statistics, but don’t be fooled:
+there’s only 3 independent samples (i.e. distinct individuals). If you
+analysed the 6 samples as if they were separate samples, your analysis
+would “overestimate” the amount of information available—there’s only 3
+“pieces” of information, not 6—and thus might produce many false
+discoveries (because the estimated variation might be too small). The
+standard advice for handling technical replicates is this: add the
+counts (gene-wise) of each technical replicate to produce single
+biological replicates. Note, however, that this only applies if there’s
+no significant technical differences between the replicates (e.g. the
+technical replicates sit almost on top of each other in a PCA plot—see
+below). If there are significant technical differences between the
+replicates (e.g. if each replicate is in different batch, which
+incidentally is one of the main reasons for generating technical
+replicates) then you should consult an expert. And, if you’re in doubt
+about applying this advice, consult an expert!</li>
+</ol>
+<p>Another nice way of understanding the technical replicate issue above
+is through humour, e.g. reflect on the mistake being made in this <a href="https://xkcd.com/" class="external-link">xkcd</a> comic:</p>
+<figure><img src="fig/xkcd_slope_hypothesis_testing.png" style="width:80.0%" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="example-data">Example data<a class="anchor" aria-label="anchor" href="#example-data"></a>
+</h2>
+<hr class="half-width">
+<p>For illustration, we’ll look at data from the publication: <a href="https://www.cell.com/immunity/abstract/S1074-7613(24)00459-X" class="external-link">Obers
+et al. “Retinoic acid and TGF-β orchestrate organ-specific programs of
+tissue residency”, <em>Immunity</em> (2024)</a>. The aim of this study
+was to investigate the roles of retinoic acid (RA) and the cytokine TGFb
+in driving organ-specificity of tissue resident T cells.</p>
+<p>The relevant RNA-seq counts table for this study can be obtained from
+<a href="https://www.ncbi.nlm.nih.gov/geo" class="external-link">Gene Expression Omnibus</a>
+as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Use this <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE232852" class="external-link">link</a>
+</li>
+<li>Scroll down to the “Supplementary file” section</li>
+<li>For the file “GSE232852_CountsTable.txt.gz” (first row), hit “ftp”
+or “http” in the “Downloads” column</li>
+</ol>
+<p>Once the file is downloaded, move it to your R working directory and
+unzip it. Now let’s read it into R and take a look (note: you’ll need to
+adjust the file path accordingly):</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu">read.table</span><span class="op">(</span><span class="st">"data/GSE232852_CountsTable.txt"</span>, header<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">head</span><span class="op">(</span><span class="va">tab</span>, n<span class="op">=</span><span class="fl">50</span><span class="op">)</span></span></code></pre>
 </div>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
+<pre class="output" tabindex="0"><code>            EnsemblID        Symbol RA_1 RA_2 RA_3 TGFb_1 TGFb_2 TGFb_3
+1  ENSMUSG00000102693 4933401J01Rik    0    0    0      0      0      0
+2  ENSMUSG00000064842       Gm26206    0    0    0      0      0      0
+3  ENSMUSG00000051951          Xkr4    0    0    0      0      0      0
+4  ENSMUSG00000102851       Gm18956    0    0    0      0      0      0
+5  ENSMUSG00000103377       Gm37180    0    0    0      0      0      0
+6  ENSMUSG00000104017       Gm37363    0    0    0      0      0      0
+7  ENSMUSG00000103025       Gm37686    0    0    0      0      0      0
+8  ENSMUSG00000089699        Gm1992    0    0    0      0      0      0
+9  ENSMUSG00000103201       Gm37329    0    0    0      0      0      0
+10 ENSMUSG00000103147        Gm7341    0    0    0      0      0      0
+11 ENSMUSG00000103161       Gm38148    0    0    0      0      0      0
+12 ENSMUSG00000102331       Gm19938    0    0    0      0      0      0
+13 ENSMUSG00000102348       Gm10568    0    0    0      0      0      0
+14 ENSMUSG00000102592       Gm38385    0    0    0      0      0      0
+15 ENSMUSG00000088333       Gm27396    0    0    0      0      0      0
+16 ENSMUSG00000102343       Gm37381    0    0    0      0      0      0
+17 ENSMUSG00000102948        Gm6101    0    0    0      0      0      0
+18 ENSMUSG00000025900           Rp1    0    0    0      0      0      0
+19 ENSMUSG00000104123       Gm37483    0    0    0      0      0      0
+20 ENSMUSG00000025902         Sox17    0    0    0      0      0      0
+21 ENSMUSG00000104238       Gm37587    0    0    0      0      0      0
+22 ENSMUSG00000102269        Gm7357    2    0    1      0      0      0
+23 ENSMUSG00000096126       Gm22307    0    0    0      0      0      0
+24 ENSMUSG00000103003       Gm38076    0    0    0      0      0      0
+25 ENSMUSG00000104328       Gm37323    0    0    0      0      0      0
+26 ENSMUSG00000102735        Gm7369    0    0    0      0      0      0
+27 ENSMUSG00000098104        Gm6085   16   30   10     16     14     10
+28 ENSMUSG00000102175        Gm6119    0    2    1      1      3      0
+29 ENSMUSG00000088000       Gm25493    0    0    0      0      0      0
+30 ENSMUSG00000103265        Gm2053    0    0    0      1      1      1
+31 ENSMUSG00000103922        Gm6123   10   11    6      2      5      4
+32 ENSMUSG00000033845        Mrpl15  948 1158  880    940    880    943
+33 ENSMUSG00000102275       Gm37144    9   21   19     12      4      6
+34 ENSMUSG00000025903        Lypla1  609  711  577    752    688    647
+35 ENSMUSG00000104217       Gm37988    1    3    1      0      3      2
+36 ENSMUSG00000033813         Tcea1 1289 1617 1252   1427   1270   1216
+37 ENSMUSG00000062588        Gm6104    1    2    2      2      3      3
+38 ENSMUSG00000103280       Gm37277    0    0    0      0      0      0
+39 ENSMUSG00000002459         Rgs20    0    0    0      2      0      0
+40 ENSMUSG00000091305       Gm17100    0    0    0      0      0      0
+41 ENSMUSG00000102653       Gm37079    0    0    0      0      0      0
+42 ENSMUSG00000085623       Gm16041    0    0    0      0      0      0
+43 ENSMUSG00000091665       Gm17101    0    0    0      0      0      0
+44 ENSMUSG00000033793       Atp6v1h  873 1047  756   1110   1024   1009
+45 ENSMUSG00000104352        Gm7182    0    0    0      0      0      0
+46 ENSMUSG00000104046       Gm37567    0    0    0      0      0      0
+47 ENSMUSG00000102907       Gm38264    0    0    0      0      0      0
+48 ENSMUSG00000025905         Oprk1    0    0    0      0      0      0
+49 ENSMUSG00000103936       Gm36965    0    0    0      0      0      0
+50 ENSMUSG00000093015       Gm22463    0    0    0      0      0      0
+   RA_TGFb_1 RA_TGFb_2 RA_TGFb_3 WT_1 WT_2 WT_3
+1          0         0         0    0    0    0
+2          0         0         0    0    0    0
+3          0         0         0    0    0    0
+4          0         0         0    0    0    0
+5          0         0         0    0    0    0
+6          0         0         0    0    0    0
+7          0         0         0    0    0    0
+8          0         0         0    0    0    0
+9          0         0         0    0    0    0
+10         0         0         0    0    0    0
+11         0         0         0    0    0    0
+12         0         0         0    0    0    0
+13         0         0         0    0    0    0
+14         0         0         0    0    0    0
+15         0         0         0    0    0    0
+16         0         0         0    0    0    0
+17         0         0         0    0    0    0
+18         0         0         0    0    0    0
+19         0         0         0    0    0    0
+20         0         0         0    0    0    0
+21         0         0         0    0    0    0
+22         1         0         1    0    0    0
+23         0         0         0    0    0    0
+24         0         0         0    0    0    0
+25         0         0         0    0    0    0
+26         0         0         0    0    0    0
+27        12        14        16    9   15   19
+28         3         4         2    0    0    2
+29         0         0         0    0    0    0
+30         0         1         0    0    0    0
+31         7         9         7    5    4   11
+32       656      1197       944 1123  967 1375
+33        17        17        18   12    9   24
+34       476       837       688  717  709  846
+35         0         3         0    0    1    2
+36       993      1666      1440 1563 1445 1878
+37         2         1         1    5    0    7
+38         0         0         0    0    0    0
+39         0         0         0    0    0    0
+40         0         0         0    0    0    0
+41         0         0         0    0    0    0
+42         0         0         0    0    0    0
+43         0         0         0    0    0    0
+44       819      1417      1144 1101  973 1347
+45         0         0         0    0    0    0
+46         0         0         0    0    0    0
+47         0         0         0    0    0    0
+48         0         0         0    0    0    0
+49         0         0         0    0    0    0
+50         0         0         0    0    0    0</code></pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within
-challenge blocks?</h3>
-<div class="callout-content">
-
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<p>You can add a line with at least three colons and a
-<code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="figures">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
+<p>Here’s what we have:</p>
+<ul>
+<li>The first 2 columns are gene annotation: “EnsembleID” and “Symbol”,
+respectively (note: EnsembleID is one of many standard gene identifiers
+in use; anther common identifier is “Entrez” gene ID).</li>
+<li>The next 12 columns represent the count data on the four
+experimental groups of interest, each with three biological replicates;
+specially, a special kind of T cell treated with either: RA, TGFb, both
+(RA_TGFb), or neither (WT).</li>
+</ul></section><section><h2 class="section-heading" id="preliminaries">Preliminaries<a class="anchor" aria-label="anchor" href="#preliminaries"></a>
 </h2>
 <hr class="half-width">
-<p>You can also include figures generated from R Markdown:</p>
+<p>Before we can start analysing this data, there’s four
+preliminaries:</p>
+<ol style="list-style-type: decimal">
+<li>Let’s load the R packages we’ll be using (note: if you don’t have
+the relevant packages installed, then you’ll need to run the commented
+code):</li>
+</ol>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pie</span><span class="op">(</span></span>
-<span>  <span class="fu">c</span><span class="op">(</span>Sky <span class="op">=</span> <span class="fl">78</span>, <span class="st">"Sunny side of pyramid"</span> <span class="op">=</span> <span class="fl">17</span>, <span class="st">"Shady side of pyramid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, </span>
-<span>  init.angle <span class="op">=</span> <span class="fl">315</span>, </span>
-<span>  col <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"deepskyblue"</span>, <span class="st">"yellow"</span>, <span class="st">"yellow3"</span><span class="op">)</span>, </span>
-<span>  border <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="co"># # CRAN packages</span></span>
+<span><span class="co"># install.packages(c("ggplot2","ggrepel","ggfortify","scales","pheatmap","matrixStats","openxlsx"))</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">ggrepel</span><span class="op">)</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">ggfortify</span><span class="op">)</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">scales</span><span class="op">)</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">pheatmap</span><span class="op">)</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">matrixStats</span><span class="op">)</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">openxlsx</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># # Bioconductor packages</span></span>
+<span><span class="co"># install.packages("BiocManager")</span></span>
+<span><span class="co"># BiocManager::install(c("limma","edgeR"))</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">limma</span><span class="op">)</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">edgeR</span><span class="op">)</span></span></code></pre>
 </div>
-<figure style="text-align: center"><img src="fig/introduction-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid" class="figure mx-auto d-block"><figcaption>
-Sun arise each and every morning
-</figcaption></figure><p>Or you can use standard markdown for static figures with the
-following syntax:</p>
-<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
-</figure><div id="callout1" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
+<p>We’ll mainly be using <code>limma</code> and some functions from
+<code>edgeR</code> to analyse the data above; the other packages will be
+used for plotting and exporting results tables.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>We need to organize our data into <code>DGEList</code> which is a
+special “container” for our analysis:</li>
+</ol>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">annotation</span> <span class="op">&lt;-</span> <span class="va">tab</span><span class="op">[</span>,<span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">counts</span> <span class="op">&lt;-</span> <span class="va">tab</span><span class="op">[</span>,<span class="op">-</span><span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="va">dge</span> <span class="op">&lt;-</span> <span class="fu">DGEList</span><span class="op">(</span>counts<span class="op">=</span><span class="va">counts</span>, genes<span class="op">=</span><span class="va">annotation</span><span class="op">)</span></span></code></pre>
 </div>
-<span class="callout-header">Callout</span>
-<div class="callout-inner">
-<div class="callout-content">
-<p>Callout sections can highlight information.</p>
-<p>They are sometimes used to emphasise particularly important points
-but are also used in some lessons to present “asides”: content that is
-not central to the narrative of the lesson, e.g. by providing the answer
-to a commonly-asked question.</p>
+<p>Note that we split the data table into two distinct parts—gene
+annotation and counts—storing each into the relevant slots of the
+container.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>It’s helpful to create a table of sample information:</li>
+</ol>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">samples</span> <span class="op">&lt;-</span> <span class="fu">colnames</span><span class="op">(</span><span class="va">tab</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu">c</span><span class="op">(</span><span class="fu">rep</span><span class="op">(</span><span class="st">"RA"</span>,<span class="fl">3</span><span class="op">)</span>, <span class="fu">rep</span><span class="op">(</span><span class="st">"TGFb"</span>,<span class="fl">3</span><span class="op">)</span>, <span class="fu">rep</span><span class="op">(</span><span class="st">"RA_TGFb"</span>,<span class="fl">3</span><span class="op">)</span>, <span class="fu">rep</span><span class="op">(</span><span class="st">"WT"</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">data.frame</span><span class="op">(</span><span class="va">samples</span>, <span class="va">group</span><span class="op">)</span></span>
+<span><span class="va">info</span></span></code></pre>
 </div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>     samples   group
+1       RA_1      RA
+2       RA_2      RA
+3       RA_3      RA
+4     TGFb_1    TGFb
+5     TGFb_2    TGFb
+6     TGFb_3    TGFb
+7  RA_TGFb_1 RA_TGFb
+8  RA_TGFb_2 RA_TGFb
+9  RA_TGFb_3 RA_TGFb
+10      WT_1      WT
+11      WT_2      WT
+12      WT_3      WT</code></pre>
 </div>
+<p>Here the first column is a unique sample name and the second labels
+the experimental group the sample belongs to. Incidentally, this would
+be the place to store any other relevant sample information (e.g. what
+batch each sample belongs to, if relevant) and even relevant biological
+covariates (e.g. sex, age, etc.). Note also that such sample information
+is usually prepared separately (in, say, Excel) and then read into R;
+since our example is simple, we created it on the fly.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>We need to create a factor vector for our groups:</li>
+</ol>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu">factor</span><span class="op">(</span><span class="va">info</span><span class="op">$</span><span class="va">group</span><span class="op">)</span></span>
+<span><span class="va">group</span></span></code></pre>
 </div>
-</section><section><h2 class="section-heading" id="math">Math<a class="anchor" aria-label="anchor" href="#math"></a>
-</h2>
-<hr class="half-width">
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to
-create dynamic reports with {knitr}, so we now use mathjax to describe
-this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code> [1] RA      RA      RA      TGFb    TGFb    TGFb    RA_TGFb RA_TGFb RA_TGFb
+[10] WT      WT      WT
+Levels: RA RA_TGFb TGFb WT</code></pre>
+</div>
+<p>Factor vectors are special in R: they have an extra piece of
+information called “levels” (in this case, it’s saying this factor has
+four levels), information which R uses to specify statistical models
+etc. As you’ll see, this particular <code>group</code> vector will be
+important in our analysis.</p>
+<!--
+Persist objects between episodes
+-->
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -476,14 +739,7 @@ this:</p>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>FIXME</li>
 </ul>
 </div>
 </div>
@@ -492,7 +748,1503 @@ locally</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</section></section>
+</section></section><section id="aio-02-filtering-visualisation-normalisation"><p>Content from <a href="02-filtering-visualisation-normalisation.html">First steps: filtering, visualisation, and basic normalisation</a></p>
+<hr>
+<p>Last updated on 2025-10-21 |
+
+        <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/02-filtering-visualisation-normalisation.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>FIXME</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>FIXME</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="filtering">Filtering<a class="anchor" aria-label="anchor" href="#filtering"></a>
+</h2>
+<hr class="half-width">
+<p>So, assuming your counts table has biological replicates in each
+group (and any technical replicates have been taken care of), the first
+thing we need to do is <em>filtering</em>. More precisely, removing
+genes with little to no expression, because the former add “noise” while
+the latter aren’t even relevant. There are various approaches to
+filtering, but one of the simplest is to use the <code>limma</code>
+function <code>filterByExpression</code>:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">keep</span> <span class="op">&lt;-</span> <span class="fu">filterByExpr</span><span class="op">(</span><span class="va">dge</span>, group<span class="op">=</span><span class="va">group</span><span class="op">)</span> <span class="co"># logical vector indicating which rows of dge to keep</span></span>
+<span><span class="fu">table</span><span class="op">(</span><span class="va">keep</span><span class="op">)</span> <span class="co"># 32069 genes will be removed; 14009 genes will be kept</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>keep
+FALSE  TRUE
+32069 14009 </code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dge</span> <span class="op">&lt;-</span> <span class="va">dge</span><span class="op">[</span><span class="va">keep</span>,,keep.lib.size<span class="op">=</span><span class="cn">FALSE</span><span class="op">]</span></span>
+<span><span class="fu">head</span><span class="op">(</span><span class="va">dge</span><span class="op">$</span><span class="va">counts</span><span class="op">)</span> <span class="co"># compare to pre-filtered data to see the difference</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>   RA_1 RA_2 RA_3 TGFb_1 TGFb_2 TGFb_3 RA_TGFb_1 RA_TGFb_2 RA_TGFb_3 WT_1 WT_2
+27   16   30   10     16     14     10        12        14        16    9   15
+32  948 1158  880    940    880    943       656      1197       944 1123  967
+33    9   21   19     12      4      6        17        17        18   12    9
+34  609  711  577    752    688    647       476       837       688  717  709
+36 1289 1617 1252   1427   1270   1216       993      1666      1440 1563 1445
+44  873 1047  756   1110   1024   1009       819      1417      1144 1101  973
+   WT_3
+27   19
+32 1375
+33   24
+34  846
+36 1878
+44 1347</code></pre>
+</div>
+<p>Roughly speaking, this strategy keeps genes that have a reasonable
+number of counts in a worthwhile number samples, and removes them
+otherwise (see function help for precise details).</p>
+<p>Following filtering, you should check the <em>library size</em> of
+each sample. The library size of a sample is simply the sum of the
+counts in that library, i.e. <span class="math display">\[
+\begin{align*}
+\text{Library size for sample}\ j &amp;= \sum_{i} Y_{ij} \\
+&amp; = \sum_{\substack{\text{all genes}}} \text{counts for sample}\ j
+\end{align*}
+\]</span> where <span class="math inline">\(Y_{ij}\)</span> is the count
+for gene <span class="math inline">\(i\)</span> in sample <span class="math inline">\(j\)</span>. Here’s a plot of the library sizes for
+our data:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">lib.size.millons</span> <span class="op">&lt;-</span> <span class="fu">colSums</span><span class="op">(</span><span class="va">dge</span><span class="op">$</span><span class="va">counts</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1e6</span></span>
+<span></span>
+<span><span class="fu">barplot</span><span class="op">(</span><span class="va">lib.size.millons</span>, las<span class="op">=</span><span class="fl">2</span>, cex.names<span class="op">=</span><span class="fl">0.8</span>, main<span class="op">=</span><span class="st">"Library size (millons)"</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>h<span class="op">=</span><span class="fl">20</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red2"</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Library size is an important quantity. One reason to check it is
+because bigger is usually better: 5 million or less (not that good);
+10-15 million (better); 20+ million (much better). This is because (1)
+it’s a limited resource that needs to be “shared” between all the genes
+(in proportion to their expression); and (2) bigger counts generally
+means better statistical properties (e.g. power to detect DE). Another
+reason to check is because it will help signpost what tools you should
+use to analyse your data (more about this later).</p>
+</section><section><h2 class="section-heading" id="visualisation">Visualisation<a class="anchor" aria-label="anchor" href="#visualisation"></a>
+</h2>
+<hr class="half-width">
+<p>The next thing to do is <em>visualise</em> your data. This allows you
+to (1) see the landscape of biological differences between experimental
+groups, and (2) assess whether the data is affected by technical
+variation. Detecting technical variation is particularly important
+because its presence leads to missed and/or false discoveries,
+i.e. rubbish DE results. Thus, this step is crucial: analysing RNA-seq
+data without visualisation is literally “flying blind”!</p>
+<p>There are many visualisation methods. Each has different advantages
+and show different aspects of the data—there is no single perfect
+visualisation, so use several! Here we’ll discuss three:</p>
+<ol style="list-style-type: decimal">
+<li><p><em>PCA plots</em>. These give a special low dimensional
+representation of our (very) high dimensional data (i.e. where we’ve
+taken thousands of measurements on each sample). A ``good” plot looks
+like this: (1) replicates <em>cluster</em>; and (2) there’s some
+<em>separation</em> of biological groups.</p></li>
+<li><p><em>Boxplots</em>. These are very simple: you take all the
+expression measurements in each sample and dump them into a boxplot, one
+boxplot for each sample. A ``good” set of plots looks like this: the
+boxplots are lined up, without much movement between them.</p></li>
+<li><p><em>RLE plots</em>. These are the same as boxplots but with one
+extra (crucial) step: subtracting the row median from each row before
+dumping the observations into boxplots. This additional step removes the
+between-gene variation, making the plot more sensitive than boxplots for
+detecting technical variation. A ``good” plot looks like this: the
+boxplot medians are lined up around zero and the boxes are roughly the
+same size.</p></li>
+</ol>
+<p>If any of these plots don’t look ``good”, in the ways described, this
+indicates the presence of technical variation.</p>
+<p>Let’s make each plot then discuss them:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># log transform counts, note: 1/2 offset to avoid log transforming zeros</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu">log2</span><span class="op">(</span><span class="va">dge</span><span class="op">$</span><span class="va">counts</span> <span class="op">+</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># PCA plot (nice ggplot version, potentially for publication)</span></span>
+<span><span class="va">pca</span> <span class="op">&lt;-</span> <span class="fu">prcomp</span><span class="op">(</span><span class="fu">t</span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, center<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span>
+<span><span class="fu">autoplot</span><span class="op">(</span><span class="va">pca</span>, <span class="fu">data.frame</span><span class="op">(</span>group<span class="op">=</span><span class="va">group</span><span class="op">)</span>, col<span class="op">=</span><span class="st">'group'</span>, size<span class="op">=</span><span class="fl">4</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"PCA plot"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="warning" tabindex="0"><code>Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
+ℹ Please use tidy evaluation idioms with `aes()`.
+ℹ See also `vignette("ggplot2-in-packages")` for more information.
+ℹ The deprecated feature was likely used in the ggfortify package.
+  Please report the issue at &lt;https://github.com/sinhrks/ggfortify/issues&gt;.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.</code></pre>
+</div>
+<figure><img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-4-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># boxplot and RLE plot (simple base R versions; they're generally not for publication)</span></span>
+<span><span class="fu">par</span><span class="op">(</span>mfcol<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">cols.group</span> <span class="op">&lt;-</span> <span class="va">group</span></span>
+<span><span class="fu">levels</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu">hue_pal</span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">boxplot</span><span class="op">(</span><span class="va">y</span>, col<span class="op">=</span><span class="fu">as.character</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span>, outline<span class="op">=</span><span class="cn">FALSE</span>, las<span class="op">=</span><span class="fl">2</span>, cex.axis<span class="op">=</span><span class="fl">0.6</span>, main<span class="op">=</span><span class="st">"Boxplots"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">RLE</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">-</span> <span class="fu">rowMedians</span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="fu">boxplot</span><span class="op">(</span><span class="va">RLE</span>, col<span class="op">=</span><span class="fu">as.character</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span>, outline<span class="op">=</span><span class="cn">FALSE</span>, las<span class="op">=</span><span class="fl">2</span>, cex.axis<span class="op">=</span><span class="fl">0.6</span>, main<span class="op">=</span><span class="st">"RLE plot"</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>, col<span class="op">=</span><span class="st">"grey20"</span>, lwd<span class="op">=</span><span class="fl">3</span>, lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-5-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Note that we made these plots with log transformed counts, not the
+counts themselves (the reason for this is technical: the log
+transformation roughly removes the strong mean-variance relationship
+inherent in RNA-seq data, something we don’t want driving our
+visualisations).</p>
+<p>For our data, the PCA plot looks okay; the replicates cluster
+reasonably well and there’s separation of biological groups. The
+boxplots and RLE plot, on the other hand, tell a different story (which
+is why you should visualise your data multiple ways!). The boxplots are
+wobbling around a little, which is a problem. Indeed, the RLE plot
+reveals things are far from ideal. The boxplots and RLE plot clearly
+indicate the presence of technical variation which needs to be removed
+if we’re to obtain non-rubbish results. This is the topic we turn to
+next.</p>
+</section><section><h2 class="section-heading" id="basic-normalisation">Basic normalisation<a class="anchor" aria-label="anchor" href="#basic-normalisation"></a>
+</h2>
+<hr class="half-width">
+<p>Unfortunately, when doing RNA-seq analysis we can’t simply compare
+counts between samples because there’s almost always technical
+differences between them. To make samples properly comparable, the data
+needs to be <em>normalised</em>: we need to remove or adjust for
+technical differences between samples, leaving only biological
+differences (the thing we’re interested in!). Failing to successfully
+normalise your data can lead to significant missed and/or false
+discoveries (rubbish results).</p>
+<p>Two important technical differences between samples are (1) library
+size differences and (2) compositional differences:</p>
+<ol style="list-style-type: decimal">
+<li>
+<em>Library size differences</em>. To see the problem here look at
+Gene 3 in the made up table of counts:</li>
+</ol>
+<figure><img src="fig/table-of-counts.png" style="width:70.0%" class="figure mx-auto d-block"></figure><p>Does Gene 3 show a biological or technical difference between the two
+groups? Looks like a biological difference, but what if I told you the
+library sizes for group B were 3 times bigger? In that case, the
+difference looks more like an artifact of library size rather than a
+true biological difference. Let’s look at the problem another way:</p>
+<figure><img src="fig/differences-lib-size.png" style="width:70.0%" class="figure mx-auto d-block"></figure><p>It should be clear from this that differences resulting from
+different library sizes can be mistaken for biological differences. One
+simple way to (roughly) normalise for library size differences is to
+calculate <em>counts-per-million (CPM)</em>. If we again let <span class="math inline">\(Y_{ij}\)</span> be the count for gene <span class="math inline">\(i\)</span> in sample <span class="math inline">\(j\)</span>, and let <span class="math inline">\(N_j\)</span> be the library size for sample <span class="math inline">\(j\)</span>, then the CPM value for gene <span class="math inline">\(i\)</span> in sample <span class="math inline">\(j\)</span> is given by <span class="math display">\[
+\text{CPM}_{ij} = \frac{Y_{ij}}{N_j} \times 10^6 =
+\frac{\text{Count}}{\text{Library size}} \times 10^6,
+\]</span> Because CPM values are (scaled) <em>proportions</em>,
+i.e. “Count / Library size”, not absolute counts, the issue of library
+size differences is no longer relevant.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<em>Compositional differences</em>. For each sample, the probability
+of sequencing a transcript is proportional to its abundance—this is the
+basis of how RNA-seq works (of course!). To see the potential problem
+this fact creates, look at this figure:</li>
+</ol>
+<figure><img src="fig/differences-composition.png" style="width:70.0%" class="figure mx-auto d-block"></figure><p>These two samples are the same (they have the same number of red,
+yellow, blue, and green transcripts) except for the black transcript:
+sample A has many more black transcripts. This difference in composition
+means that even if the library sizes are the same, comparing raw counts
+still gives the wrong impression. One popular approach for normalising
+out these differences is the <code>TMM</code> method (from the
+<code>edgeR</code> package).</p>
+<p>Here’s how to adjust for library size and compositional differences
+in our example:</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dge</span> <span class="op">&lt;-</span> <span class="fu">calcNormFactors</span><span class="op">(</span><span class="va">dge</span>, method<span class="op">=</span><span class="st">"TMM"</span><span class="op">)</span> <span class="co"># adjustment factors for composition; stored in our container for later use</span></span>
+<span><span class="va">CPM</span> <span class="op">&lt;-</span> <span class="fu">cpm</span><span class="op">(</span><span class="va">dge</span><span class="op">)</span> <span class="co"># adjustment factors for composition incorporated when calculating cpm values</span></span>
+<span><span class="fu">head</span><span class="op">(</span><span class="va">CPM</span><span class="op">)</span> <span class="co"># compare to the raw counts</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>     RA_1  RA_2   RA_3 TGFb_1 TGFb_2 TGFb_3 RA_TGFb_1 RA_TGFb_2 RA_TGFb_3
+27  0.728  1.13  0.476  0.613  0.576   0.40     0.635     0.439     0.589
+32 43.136 43.55 41.866 36.001 36.189  37.76    34.720    37.554    34.726
+33  0.410  0.79  0.904  0.460  0.164   0.24     0.900     0.533     0.662
+34 27.711 26.74 27.451 28.801 28.293  25.91    25.193    26.260    25.309
+36 58.652 60.81 59.564 54.652 52.227  48.69    52.556    52.268    52.973
+44 39.723 39.37 35.967 42.512 42.111  40.40    43.347    44.456    42.084
+     WT_1   WT_2   WT_3
+27  0.338  0.610  0.583
+32 42.181 39.339 42.220
+33  0.451  0.366  0.737
+34 26.931 28.843 25.977
+36 58.707 58.785 57.665
+44 41.354 39.583 41.360</code></pre>
+</div>
+<p>Before we can proceed, however, we need to do something <em>very
+important</em>: we need to <em>check</em> that the normalisation
+methodology we’ve applied has actually worked! One way of doing this is
+through visualisation. You want to see that the normalisation has (1)
+removed technical (unwanted) variation, while (2) retaining (i.e. not
+removing) the biological differences of interest. For example, here’s
+what our data looks like after normalising for library size and
+composition:</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># log transform adjusted CPM values</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu">cpm</span><span class="op">(</span><span class="va">dge</span>, log<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># PCA plot (nice ggplot version, potentially for publication)</span></span>
+<span><span class="va">pca</span> <span class="op">&lt;-</span> <span class="fu">prcomp</span><span class="op">(</span><span class="fu">t</span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, center<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span>
+<span><span class="fu">autoplot</span><span class="op">(</span><span class="va">pca</span>, <span class="fu">data.frame</span><span class="op">(</span>group<span class="op">=</span><span class="va">group</span><span class="op">)</span>, col<span class="op">=</span><span class="st">'group'</span>, size<span class="op">=</span><span class="fl">4</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"PCA plot"</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-7-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># boxplot and RLE plot (simple base R versions; they're generally not for publication)</span></span>
+<span><span class="fu">par</span><span class="op">(</span>mfcol<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">cols.group</span> <span class="op">&lt;-</span> <span class="va">group</span></span>
+<span><span class="fu">levels</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu">hue_pal</span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">boxplot</span><span class="op">(</span><span class="va">y</span>, col<span class="op">=</span><span class="fu">as.character</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span>, outline<span class="op">=</span><span class="cn">FALSE</span>, las<span class="op">=</span><span class="fl">2</span>, cex.axis<span class="op">=</span><span class="fl">0.6</span>, main<span class="op">=</span><span class="st">"Boxplots"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">RLE</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">-</span> <span class="fu">rowMedians</span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="fu">boxplot</span><span class="op">(</span><span class="va">RLE</span>, col<span class="op">=</span><span class="fu">as.character</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span>, outline<span class="op">=</span><span class="cn">FALSE</span>, las<span class="op">=</span><span class="fl">2</span>, cex.axis<span class="op">=</span><span class="fl">0.6</span>, main<span class="op">=</span><span class="st">"RLE plot"</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>, col<span class="op">=</span><span class="st">"grey20"</span>, lwd<span class="op">=</span><span class="fl">3</span>, lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-8-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Note that we can now use the cpm function to calculate logged data.
+The PCA plot looks better: the replicates are clustered more tightly
+(technical variation has been removed), and the biological groups are
+more separated (biological differences between groups are maintained,
+actually improved). Moreover, the boxplots and RLE plot are looking much
+better: the boxplots are lined up, and the RLE plot medians are centered
+on zero and the boxes are roughly similar in size.</p>
+<p>WARNING!…library size and composition differences aren’t the only
+kinds of technical differences that can arise between samples:</p>
+<ul>
+<li>
+<p>Another way they can arise is when different samples are prepared
+differently, e.g.</p>
+<ul>
+<li>with different protocols, or</li>
+<li>in different labs, or</li>
+<li>on different dates, or</li>
+<li>by different people, or</li>
+<li>etc.</li>
+</ul>
+<p>These differences can lead to so-called “batch effects”. For example,
+consider these PCA plots of a real data set:</p>
+</li>
+</ul>
+<figure><img src="fig/batch-effect.png" style="width:80.0%" class="figure mx-auto d-block"></figure><p>These are both the “same” PCA plot, but one is coloured by biological
+condition and the other is coloured by batch. The major factor driving
+separation (along PC1) is batch, not biological condition; consequently,
+replicates are not clustering by group, and the groups aren’t
+separating. Batch effects like these can only be corrected with more
+sophisticated analysis approaches, a topic outside the scope of this
+workshop.</p>
+<ul>
+<li>Moreover, batch effects aren’t the only way problems can arise
+(beyond library size and composition). For example, consider this PCA
+plot of another real data set (coloured by biological condition):</li>
+</ul>
+<figure><img src="fig/bad-PCA.png" style="width:40.0%" class="figure mx-auto d-block"></figure><p>Again, the replicates aren’t really clustering and the groups aren’t
+really separating. The problem here, however, isn’t batch effects—it’s
+something much more subtle.</p>
+<p>The bottom line is this: if, after normalising for library size and
+composition, your visualisations don’t look reasonably “good”, in the
+ways discussed above, the results you’ll get from proceeding with a DE
+analysis will likely contain missed and/or false discoveries—you’ll
+likely get rubbish results.</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>FIXME</li>
+</ul>
+</div>
+</div>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+</section></section><section id="aio-03-de-with-limma"><p>Content from <a href="03-de-with-limma.html">Differential expression with limma</a></p>
+<hr>
+<p>Last updated on 2025-10-21 |
+
+        <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/03-de-with-limma.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>FIXME</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>FIXME</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="statistical-model-for-the-data">Statistical model (for the data)<a class="anchor" aria-label="anchor" href="#statistical-model-for-the-data"></a>
+</h2>
+<hr class="half-width">
+<p>Let’s remind ourselves of our goal. Look again at the made up table
+of counts:</p>
+<figure><img src="fig/table-of-counts.png" style="width:80.0%" class="figure mx-auto d-block"></figure><p>We want to answer the question: which genes are DE, i.e. have
+significantly different levels of expression between groups? For
+example, does Gene 3 have higher expression in group B? It looks like it
+does (assuming there’s no library size and composition difference), but
+there’s also <em>variation</em>. Thus, we need to do some statistics!
+And for this we’re going to need a <em>statistical model</em> for the
+data. Let <span class="math inline">\(Y_{ij}\)</span> be the count for
+gene <span class="math inline">\(i\)</span> in sample <span class="math inline">\(j\)</span>:</p>
+<figure><img src="fig/math-table.png" style="width:30.0%" class="figure mx-auto d-block"></figure><p>For various reasons (theoretical and empirical), it turns out that a
+good model for RNA-seq count data (on biological replicates) is the
+<em>Negative Binomial</em> (NB) distribution: <span class="math display">\[
+Y_{ij} \sim \text{Negative Bionomial}
+\]</span> You might have never even heard of this obscure distribution!
+Remarkably, however, it can shown that log transformed NB count data (or
+adjusted CPM data) follows, to good approximation, a simple
+<em>Normal</em> distribution: <span class="math display">\[
+\log(Y_{ij}) \sim \text{Normal}
+\]</span> With this in mind, we can distinguish the two main approaches
+to DE analysis:</p>
+<ol style="list-style-type: decimal">
+<li>Analyse the counts directly
+<ul>
+<li>Popular methods are: <code>edgeR</code> and <code>DEseq2</code>
+</li>
+<li>These use the NB distribution and generalised linear models
+(GLMs)</li>
+<li>Roughly speaking, these are applicable in all situations (in
+contrast to recommendations below) <br><br>
+</li>
+</ul>
+</li>
+<li>Analyse log transformed expression values (more precisely: log
+transformed adjusted CPM values)
+<ul>
+<li>The most popular method is <code>limma</code>, which comes in two
+flavours: <code>limma-trend</code> and <code>limma-voom</code>
+</li>
+<li>These use the normal distribution and simple linear models
+(LMs).</li>
+<li>Recommendations
+<ul>
+<li>Neither flavour is recommended when library sizes are very small
+(e.g. less than 1M) [or more generally: when the average counts per
+feature is small]</li>
+<li>
+<code>limma-voom</code> in particular is recommended when library
+sizes are very different (e.g. some libraries have size 2M while others
+have size 20M).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Since the library sizes aren’t too small in our example, we’ll focus
+on the <code>limma</code> approach, and since the library sizes aren’t
+too different, we’ll focus initially on <code>limma-trend</code> and
+return to a discussion of <code>limma-voom</code> later. While methods
+that analyse counts directly are more generally applicable, they’re more
+difficult to understand conceptually and to apply. Thankfully, however,
+the log transformation approach (<code>limma</code>) is applicable to
+most RNA-seq data sets.</p>
+<p>The first step in our analysis will be to create another container,
+called an <code>EList</code>, which will store our log transformed
+(adjusted) CPM values and gene annotation:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu">new</span><span class="op">(</span><span class="st">"EList"</span><span class="op">)</span></span>
+<span><span class="va">y</span><span class="op">$</span><span class="va">E</span> <span class="op">&lt;-</span> <span class="fu">cpm</span><span class="op">(</span><span class="va">dge</span>, log<span class="op">=</span><span class="cn">TRUE</span>, prior.count<span class="op">=</span><span class="fl">1</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">y</span><span class="op">$</span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="va">dge</span><span class="op">$</span><span class="va">genes</span></span></code></pre>
+</div>
+</section><section><h2 class="section-heading" id="linear-model-for-the-means">Linear model (for the means)<a class="anchor" aria-label="anchor" href="#linear-model-for-the-means"></a>
+</h2>
+<hr class="half-width">
+<p>Now that we’ve decided on a model for the data, and corresponding
+methodology, we need to connect the data to the <em>means</em> for each
+experimental group. For this, we use a <em>linear model</em>. There’s
+many ways to talk about and apply linear models—we’ll do it the simplest
+way possible.</p>
+<p>Take any gene, and let <span class="math inline">\(y_1, y_2, \ldots,
+y_{12}\)</span> be the 12 log expression observations for that gene. Now
+let <span class="math inline">\(y_{1,RA}, y_{2,RA}, y_{3,RA}\)</span> be
+the three observations for the RA group specifically. We can write <span class="math display">\[
+\begin{align}
+y_{1,RA} &amp;= \mu_{RA} + \epsilon_1 \\
+y_{2,RA} &amp;= \mu_{RA} + \epsilon_2 \\
+y_{3,RA} &amp;= \mu_{RA} + \epsilon_3,
+\end{align}
+\]</span> where <span class="math inline">\(\mu_{RA}\)</span> is the RA
+group mean and the <span class="math inline">\(\epsilon\)</span>’s are
+random errors (i.e. biological variation!). Note that all three
+observations share the group mean <span class="math inline">\(\mu_{RA}\)</span>; they differ only because of the
+random errors.</p>
+<p>Similarly, we can do this for all 12 observations: <span class="math display">\[
+\begin{align}
+y_{1,RA} &amp;= \mu_{RA} + \epsilon_1 \\
+y_{2,RA} &amp;= \mu_{RA} + \epsilon_2 \\
+y_{3,RA} &amp;= \mu_{RA} + \epsilon_3 \\
+y_{4,TGFb} &amp;= \mu_{TGFb} + \epsilon_4 \\
+y_{5,TGFb} &amp;= \mu_{TGFb} + \epsilon_5 \\
+y_{6,TGFb} &amp;= \mu_{TGFb} + \epsilon_6 \\
+y_{7,RA\_TGFb} &amp;= \mu_{RA\_TGFb} + \epsilon_7 \\
+y_{8,RA\_TGFb} &amp;= \mu_{RA\_TGFb} + \epsilon_8 \\
+y_{9,RA\_TGFb} &amp;= \mu_{RA\_TGFb} + \epsilon_9 \\
+y_{10,WT} &amp;= \mu_{WT} + \epsilon_{10} \\
+y_{11,WT} &amp;= \mu_{WT} + \epsilon_{11} \\
+y_{12,WT} &amp;= \mu_{WT} + \epsilon_{12}.
+\end{align}
+\]</span> Now, using some simple high-school matrix-vector notation and
+algebra, we can write <span class="math display">\[
+\begin{bmatrix}
+y_{1,RA} \\
+y_{2,RA} \\
+y_{3,RA} \\
+y_{4,TGFb} \\
+y_{5,TGFb} \\
+y_{6,TGFb} \\
+y_{7,RA\_TGFb} \\
+y_{8,RA\_TGFb} \\
+y_{9,RA\_TGFb} \\
+y_{10,WT} \\
+y_{11,WT} \\
+y_{12,WT}
+\end{bmatrix}
+\quad
+=
+\quad
+\begin{bmatrix}
+\mu_{RA} + \epsilon_1 \\
+\mu_{RA} + \epsilon_2 \\
+\mu_{RA} + \epsilon_3 \\
+\mu_{TGFb} + \epsilon_4 \\
+\mu_{TGFb} + \epsilon_5 \\
+\mu_{TGFb} + \epsilon_6 \\
+\mu_{RA\_TGFb} + \epsilon_7 \\
+\mu_{RA\_TGFb} + \epsilon_8 \\
+\mu_{RA\_TGFb} + \epsilon_9 \\
+\mu_{WT} + \epsilon_{10} \\
+\mu_{WT} + \epsilon_{11} \\
+\mu_{WT} + \epsilon_{12}
+\end{bmatrix}
+\quad
+=
+\quad
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+\mu_{RA}\\
+\mu_{RA\_TGFb}\\
+\mu_{TGFb}\\
+\mu_{WT}
+\end{bmatrix}
+\quad
++
+\quad
+\begin{bmatrix}
+\epsilon_1 \\
+\epsilon_2 \\
+\epsilon_3 \\
+\epsilon_4 \\
+\epsilon_5 \\
+\epsilon_6 \\
+\epsilon_7 \\
+\epsilon_8 \\
+\epsilon_9 \\
+\epsilon_{10} \\
+\epsilon_{11} \\
+\epsilon_{12}
+\end{bmatrix}
+\]</span> or, more compactly: <span class="math inline">\(\mathbf{y} =
+\mathbf{X} \boldsymbol\beta + \boldsymbol\epsilon\)</span>. This is the
+linear model for our data, and we’ll use the following terminology:</p>
+<ul>
+<li>
+<span class="math inline">\(\mathbf{X}\)</span> is called the
+“design” matrix</li>
+<li>
+<span class="math inline">\(\boldsymbol\beta\)</span> is called the
+vector of coefficients</li>
+</ul>
+<p>We’ll fit this (one) model to every gene, which amounts to
+<em>estimating</em> the coefficient vector <span class="math inline">\(\boldsymbol\beta\)</span> for each gene, i.e. the
+group means for every gene!</p>
+<p>While the terminology above is important to know, don’t worry if you
+didn’t follow all the details of the discussion. The details are there
+partly for completeness, but mostly to help demystify design matrices:
+they’re just something that connects your data (observed expression
+values) to the things of interest, in our case the means of the groups.
+The design matrix is easy to make using our <code>group</code> factor
+vector:</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu">model.matrix</span><span class="op">(</span><span class="op">~</span><span class="fl">0</span> <span class="op">+</span> <span class="va">group</span><span class="op">)</span> <span class="co"># note the "0": VERY important!</span></span>
+<span><span class="fu">colnames</span><span class="op">(</span><span class="va">X</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu">levels</span><span class="op">(</span><span class="va">group</span><span class="op">)</span></span>
+<span><span class="va">X</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>   RA RA_TGFb TGFb WT
+1   1       0    0  0
+2   1       0    0  0
+3   1       0    0  0
+4   0       0    1  0
+5   0       0    1  0
+6   0       0    1  0
+7   0       1    0  0
+8   0       1    0  0
+9   0       1    0  0
+10  0       0    0  1
+11  0       0    0  1
+12  0       0    0  1
+attr(,"assign")
+[1] 1 1 1 1
+attr(,"contrasts")
+attr(,"contrasts")$group
+[1] "contr.treatment"</code></pre>
+</div>
+<p>Observe, of course, that this is the same as the design matrix above.
+Fitting the linear model is easy too:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">lmFit</span><span class="op">(</span><span class="va">y</span>, design<span class="op">=</span><span class="va">X</span><span class="op">)</span></span>
+<span><span class="fu">names</span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code> [1] "coefficients"     "rank"             "assign"           "qr"
+ [5] "df.residual"      "sigma"            "cov.coefficients" "stdev.unscaled"
+ [9] "pivot"            "genes"            "Amean"            "method"
+[13] "design"          </code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">head</span><span class="op">(</span><span class="va">fit</span><span class="op">$</span><span class="va">coefficients</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>       RA RA_TGFb   TGFb     WT
+27 -0.412  -0.818 -0.887 -0.960
+32  5.422   5.156  5.196  5.366
+33 -0.547  -0.510 -1.816 -0.955
+34  4.772   4.678  4.790  4.768
+36  5.899   5.717  5.695  5.868
+44  5.261   5.436  5.381  5.350</code></pre>
+</div>
+<p>We’ve arrived at the group means for each gene, but this isn’t what
+we’re really after: what we really want are differences between the
+group means—remember: we’re looking for DE genes—or, more precisely, we
+want <em>differences</em> between the group means for <em>contrasts</em>
+(i.e. comparisons) of interest. To do this, we construct the contrasts
+of interest and then fit them. For example, suppose we’re interested in
+two comparisons: (1) RA vs WT (i.e. the effect of RA), and (2) TGFb vs
+WT (i.e. the effect of TGFb). The corresponding contrast (matrix) is
+constructed as follows:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">CM</span> <span class="op">&lt;-</span> <span class="fu">makeContrasts</span><span class="op">(</span></span>
+<span>  RA_WT   <span class="op">=</span> <span class="va">RA</span> <span class="op">-</span> <span class="va">WT</span>,</span>
+<span>  TGFb_WT <span class="op">=</span> <span class="va">TGFb</span> <span class="op">-</span> <span class="va">WT</span>,</span>
+<span>  levels<span class="op">=</span><span class="va">X</span><span class="op">)</span></span>
+<span><span class="va">CM</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>         Contrasts
+Levels    RA_WT TGFb_WT
+  RA          1       0
+  RA_TGFb     0       0
+  TGFb        0       1
+  WT         -1      -1</code></pre>
+</div>
+<p>Now, to calculate these contrasts, i.e. to fit them, we do the
+following:</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fit2</span> <span class="op">&lt;-</span> <span class="fu">contrasts.fit</span><span class="op">(</span><span class="va">fit</span>, contrasts<span class="op">=</span><span class="va">CM</span><span class="op">)</span></span>
+<span><span class="fu">head</span><span class="op">(</span><span class="va">fit2</span><span class="op">$</span><span class="va">coefficients</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>    Contrasts
+       RA_WT TGFb_WT
+  27  0.5487  0.0731
+  32  0.0556 -0.1699
+  33  0.4082 -0.8608
+  34  0.0038  0.0217
+  36  0.0314 -0.1726
+  44 -0.0891  0.0317</code></pre>
+</div>
+<p>This has transformed the initial coefficients (i.e. groups means)
+into the contrasts of interest: the difference in means between the RA
+and WT groups (column 1) and the difference in means between the TGFb
+and WT groups (column 2).</p>
+</section><section><h2 class="section-heading" id="testing-for-de">Testing for DE<a class="anchor" aria-label="anchor" href="#testing-for-de"></a>
+</h2>
+<hr class="half-width">
+<p>Now that we have our differences in group means for each gene, we
+want to ask if any of these differences are <em>significantly different
+from zero</em> (over and above what you might see by random chance). In
+other words, for each gene we want to statistically test if the means of
+the two groups are different—more simply: we want to test for DE! To do
+this, we’ll use the so-called t-test (applied to each gene), whose test
+statistic looks like this: <span class="math display">\[
+T = \frac{\bar{y}_{_{A}} - \bar{y}_{_{B}}}{ \sqrt{v}}
+\]</span> where <span class="math inline">\(\bar{y}_{_{A}}\)</span> and
+<span class="math inline">\(\bar{y}_{_{B}}\)</span> are the means of the
+two groups being compared, and <span class="math inline">\(v\)</span> is
+an estimate of the variance. To test the null hypothesis (that the means
+are the same), we use the <span class="math inline">\(t\)</span>-distribution to calculate probabilities
+about this test statistic (if the chances of seeing certain values of
+<span class="math inline">\(T\)</span> are small, this is evidence
+against the null hypothesis that the group means are the same).</p>
+<p>At this point you must be thinking: “why did we do all that linear
+models stuff if, in the end, we’re just going to use a t-test?” There
+are at least two reasons. Briefly:</p>
+<ol style="list-style-type: decimal">
+<li>By using a linear model we’ve actually used <em>all</em> the samples
+to estimate the variability <span class="math inline">\(v\)</span> here
+(a standard t-test would only estimate it from the two groups being
+compared) and so the estimate is better.</li>
+<li>Linear models are much more powerful than our simple situation
+suggests: they can be used to easily adjust for things which aren’t of
+interest but affect the things of interest, e.g. you can make
+comparisons while adjusting for biological things (e.g. sex) or while
+adjusting for technical things (e.g. batch), or while adjusting for
+both!</li>
+</ol>
+<p>Hopefully this convinces you that linear models are your friend, but
+now you must be thinking a different question: “wait a second…we’re
+going to do t-tests with as little as 2 or 3 observations in each
+group?…that’s crazy!” Yes, that does seem crazy—there’s barely any
+information in each group to make a reliable inference about whether the
+means are different. But this is where the real magic of RNA-seq
+analysis comes in, the thing that makes it all work: <em>empirical
+Bayes</em> statistics. The full details are beyond the scope of our
+discussion, but the rough idea is this: we use a procedure whereby the
+genes are allowed to <em>share information</em> with each other—this
+sharing of information between genes makes up for the fact that there
+isn’t much information within any single gene. This procedure is applied
+to the gene variances—the <span class="math inline">\(v\)</span>’s
+above—which <em>moderates</em> them, making them better estimates, and
+thus increasing our power to detect DE (other terms for this
+‘moderation’ procedure include ‘shrinkage’ or ‘regularization’, terms
+which you may see in your travels—this powerful technique is used in
+many places in statistical omics analysis). So, the statistic used to
+test for DE is actually <span class="math display">\[
+\widetilde{T} = \frac{\bar{y}_{_{A}} - \bar{y}_{_{B}}}{ \sqrt{
+\widetilde{v} }}
+\]</span> where <span class="math inline">\(\widetilde{v}\)</span> is
+the moderated variance; accordingly, <span class="math inline">\(\widetilde{T}\)</span> is called the “moderated
+t-statistic”.</p>
+<p>That said, testing for DE with the moderated t-statistic is actually
+easy:</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fit2</span> <span class="op">&lt;-</span> <span class="fu">eBayes</span><span class="op">(</span><span class="va">fit2</span>, trend<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="co"># "eBayes" means empirical Bayes</span></span>
+<span><span class="fu">names</span><span class="op">(</span><span class="va">fit2</span><span class="op">)</span> <span class="co"># note the addition of "t" (and other empirical Bayes things, which needn't concern us)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code> [1] "coefficients"     "rank"             "assign"           "qr"
+ [5] "df.residual"      "sigma"            "cov.coefficients" "stdev.unscaled"
+ [9] "pivot"            "genes"            "Amean"            "method"
+[13] "design"           "contrasts"        "df.prior"         "s2.prior"
+[17] "var.prior"        "proportion"       "s2.post"          "t"
+[21] "df.total"         "p.value"          "lods"             "F"
+[25] "F.p.value"       </code></pre>
+</div>
+<p>NOTE. We’ve specified the function option <code>trend=TRUE</code>
+(this isn’t default). This is because one characteristic of RNA-seq data
+is that there is a downward trend in variability as a function of the
+level of expression—genes with lower levels of expression are more
+variable than genes with higher levels of expression (see next section).
+The empirical Bayes procedure takes this trend into account.</p>
+<p>There’s a fair amount of differential expression—here’s the number of
+DE genes for each comparison:</p>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu">decideTests</span><span class="op">(</span><span class="va">fit2</span><span class="op">)</span></span>
+<span><span class="fu">summary</span><span class="op">(</span><span class="va">dt</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>       RA_WT TGFb_WT
+Down    1989    3022
+NotSig 10353    8175
+Up      1667    2812</code></pre>
+</div>
+</section><section><h2 class="section-heading" id="some-checks">Some checks<a class="anchor" aria-label="anchor" href="#some-checks"></a>
+</h2>
+<hr class="half-width">
+<p>Before we look at the DE results more closely, there’s some things we
+need to check:</p>
+<ol style="list-style-type: decimal">
+<li>
+<em>SA plot</em>. This is a plot of variability (estimated by the
+linear model) as a function of expression level. It typically has a
+characteristic shape: it (monotonically) trends downward.</li>
+<li>
+<em>MD plot (for each comparison)</em>. This is simply a plot of
+log-fold-change (y-axis) and expression level (x-axis) for all genes.
+The meaning of ‘log-fold-change’ will be discussed below. For now, we
+note that these plots should look as follows: (1) the ‘cloud’ of data is
+skewered through the middle, (2) the red/blue dots are on top/bottom,
+respectively, and in roughly the same proportions (unless you have a
+reason to think otherwise), and (3) there’s a characteristic funnel
+shape, thicker to thinner as expression level increases.</li>
+<li>
+<em>p-value histogram (for each comparison)</em>. This is simply a
+histogram of all the DE hypothesis test p-values (one p-value for each
+gene). It should look like this: flat, with a possible spike on the far
+left. The intuitive idea here is simple: a large majority of genes
+aren’t DE, i.e. the null hypothesis is true for then, and so testing
+them for DE should just produce p-values that are random noise between
+0-1, and thus a the histogram of these p-values should be flat; the
+possible spike to the far left are p-values from genes which are truly
+DE.</li>
+</ol>
+<p>These are made as follows:</p>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">plotSA</span><span class="op">(</span><span class="va">fit2</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/03-de-with-limma-rendered-unnamed-chunk-9-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">par</span><span class="op">(</span>mfcol<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">plotMD</span><span class="op">(</span><span class="va">fit2</span>, coef<span class="op">=</span><span class="st">"RA_WT"</span>, status<span class="op">=</span><span class="va">dt</span><span class="op">[</span>,<span class="st">"RA_WT"</span><span class="op">]</span>, cex<span class="op">=</span><span class="fl">0.6</span>, main<span class="op">=</span><span class="st">"MD-plot: RA vs WT"</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"green2"</span><span class="op">)</span></span>
+<span><span class="fu">plotMD</span><span class="op">(</span><span class="va">fit2</span>, coef<span class="op">=</span><span class="st">"TGFb_WT"</span>, status<span class="op">=</span><span class="va">dt</span><span class="op">[</span>,<span class="st">"TGFb_WT"</span><span class="op">]</span>, cex<span class="op">=</span><span class="fl">0.6</span>, main<span class="op">=</span><span class="st">"MD-plot: TGFb vs WT"</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"green2"</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/03-de-with-limma-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">par</span><span class="op">(</span>mfcol<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">hist</span><span class="op">(</span><span class="va">fit2</span><span class="op">$</span><span class="va">p.value</span><span class="op">[</span>,<span class="st">"RA_WT"</span><span class="op">]</span>, col<span class="op">=</span><span class="st">"grey"</span>, xlab<span class="op">=</span><span class="st">"p-value"</span>, main<span class="op">=</span><span class="st">"p-value histogram: RA vs WT"</span><span class="op">)</span></span>
+<span><span class="fu">hist</span><span class="op">(</span><span class="va">fit2</span><span class="op">$</span><span class="va">p.value</span><span class="op">[</span>,<span class="st">"TGFb_WT"</span><span class="op">]</span>, col<span class="op">=</span><span class="st">"grey"</span>, xlab<span class="op">=</span><span class="st">"p-value"</span>, main<span class="op">=</span><span class="st">"p-value histogram: TGFb vs WT"</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/03-de-with-limma-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>These visualisations look as they should in this case. However, if
+you produce plots that don’t look reasonably close to these, then
+something isn’t right. Depending on how bad they look, the results will
+likely contain missed and/or false discoveries—they’ll be rubbish. The
+p-value histograms are particularly important. Consider two real
+examples from different data sets below:</p>
+<figure><img src="fig/p-vaule-hist.png" style="width:80.0%" class="figure mx-auto d-block"></figure><p>The plot on the right is ideal, i.e. flat with possible spike to the
+left. The plot on the left is far from ideal. If you produce a plot that
+looks like this, your results are likely rubbish!</p>
+</section><section><h2 class="section-heading" id="results">Results<a class="anchor" aria-label="anchor" href="#results"></a>
+</h2>
+<hr class="half-width">
+<p>With these checks done, we’re now ready to look at the results.
+Here’s results for the top genes from each comparison:</p>
+<div class="codewrapper sourceCode" id="cb19">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tab1</span> <span class="op">&lt;-</span> <span class="fu">topTable</span><span class="op">(</span><span class="va">fit2</span>, coef<span class="op">=</span><span class="st">"RA_WT"</span>, n<span class="op">=</span><span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="va">tab2</span> <span class="op">&lt;-</span> <span class="fu">topTable</span><span class="op">(</span><span class="va">fit2</span>, coef<span class="op">=</span><span class="st">"TGFb_WT"</span>, n<span class="op">=</span><span class="cn">Inf</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># RA vs WT</span></span>
+<span><span class="fu">head</span><span class="op">(</span><span class="va">tab1</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>               EnsemblID Symbol logFC AveExpr    t  P.Value adj.P.Val    B
+16476 ENSMUSG00000023961  Enpp4  3.37    5.25 48.6 3.76e-16  3.07e-12 25.5
+41476 ENSMUSG00000029530   Ccr9  7.79    6.47 48.1 4.39e-16  3.07e-12 25.4
+41478 ENSMUSG00000025245 Lztfl1  5.06    6.21 46.2 7.33e-16  3.42e-12 25.1
+18334 ENSMUSG00000039982   Dtx4  2.88    6.25 42.8 1.98e-15  6.93e-12 24.4
+30887 ENSMUSG00000029468  P2rx7  8.25    4.81 40.4 4.14e-15  1.16e-11 23.9
+29165 ENSMUSG00000029093 Sorcs2  8.48    2.12 36.9 1.37e-14  3.19e-11 23.0</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb21">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># TGFb vs WT</span></span>
+<span><span class="fu">head</span><span class="op">(</span><span class="va">tab2</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>               EnsemblID  Symbol logFC AveExpr    t  P.Value adj.P.Val    B
+17757 ENSMUSG00000024544 Ldlrad4  3.87    5.29 49.1 3.34e-16  4.68e-12 26.4
+22483 ENSMUSG00000038400  Pmepa1  2.91    5.11 40.5 4.05e-15  2.84e-11 24.4
+6625  ENSMUSG00000020841     Cpd  5.00    4.86 37.6 1.05e-14  4.90e-11 23.7
+9268  ENSMUSG00000095079    Igha  8.04    4.88 35.7 2.06e-14  7.13e-11 23.1
+14875 ENSMUSG00000022657    Cd96  1.59    8.21 35.1 2.54e-14  7.13e-11 22.9
+14967 ENSMUSG00000047293   Gpr15  6.24    1.43 34.5 3.19e-14  7.44e-11 22.7</code></pre>
+</div>
+<p>Let’s interpret these results (note: we’ll ignore the “B”
+column):</p>
+<ol style="list-style-type: decimal">
+<li>
+<em>Symbol</em>. These are simply gene symbols.</li>
+<li>
+<em>AveExpr</em>. The average level of expression for that gene
+(taken across all samples).</li>
+<li>
+<em>logFC</em>, i.e. log-fold-change. This is important, but
+sometimes misunderstood. Here it means the difference between the group
+means, or more specifically: for the first table logFC = RA group mean -
+WT group mean; for the second table logFC = TGFb group mean - WT group
+mean. The reason for the “log” bit in “log-fold-change” is because the
+means are calculated on a log-scale; the reason for the “fold-change”
+bit in “log-fold-change” is because a difference of logs is the log of
+the ratio.</li>
+<li>
+<em>t</em>. The moderated t-statistic.</li>
+<li>
+<em>P.Value</em>. The p-value for the hypothesis test of DE obtained
+using the moderated t-statistic (NOTE: this is typically ignored–see
+below).</li>
+<li>
+<em>adj.P.Val</em>. The p-value adjusted for ‘multiple testing’
+(typically using the Benjamini-Hochberg method). Usually a gene is
+inferred/judged to be DE only if adj.P.Val &lt; 0.05.</li>
+</ol>
+<p>The distinction between (5) and (6) is particularly important, so
+let’s say more. Firstly, in our context, we’re doing ~10,000 hypothesis
+tests, and so the idea of a p-value isn’t particularly useful. To
+appreciate this, consider the following <a href="https://xkcd.com/" class="external-link">xkcd</a> comic:</p>
+<figure><img src="fig/xkcd_significant.png" style="width:60.0%" class="figure mx-auto d-block"></figure><p>Recall that the p-value is the probability of seeing certain values
+of our test statistic, assuming the null hypothesis is true, and that we
+reject the null assumption if the calculated probability is small, say,
+below 0.05. But, this implies the following: if we were testing 10,000
+genes, and the null hypothesis was true for every gene (i.e. there was
+no DE in the data set), then we’d still reject the null (i.e. infer DE)
+for ~500 genes—that’s 500 false discoveries! The solution to this
+problem is to focus on a different idea: the <em>false discovery
+rate</em> (FDR). This is the proportion of false discoveries of DE
+amongst all the genes you’ve declared to be DE. This is what the
+adjusted p-value (adj.P.Val) represents, i.e. if you choose a DE cutoff
+of adj.P.Val &lt; 0.05 then only 5% of the genes declared DE with this
+cutoff will be false discoveries.</p>
+<p>At this point, one extra way of checking your results is to look at
+any known <em>control genes</em> relevant to the experiment:
+<em>positive</em> or <em>negative</em> controls, i.e. genes which
+<em>should</em> or <em>shouldn’t</em> be DE between conditions,
+respectively. For example, a <em>positive</em> control for this
+experiment is Hic1 because RA is known to up-regulate this gene—it
+should be DE in the RA vs WT comparison, and indeed it is:</p>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">i</span> <span class="op">&lt;-</span> <span class="va">tab1</span><span class="op">$</span><span class="va">Symbol</span><span class="op">==</span><span class="st">"Hic1"</span></span>
+<span><span class="va">tab1</span><span class="op">[</span><span class="va">i</span>,<span class="op">]</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>              EnsemblID Symbol logFC AveExpr  t  P.Value adj.P.Val    B
+6572 ENSMUSG00000043099   Hic1  4.84    4.79 32 8.57e-14   1.5e-10 21.5</code></pre>
+</div>
+<p>If it turned out this gene wasn’t DE, this would cast some doubt over
+the validity of the analysis.</p>
+<p>Finally, let’s save our results in an Excel spreadsheet!:</p>
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">write.xlsx</span><span class="op">(</span><span class="va">tab1</span>, file<span class="op">=</span><span class="st">"../Results/DE_RA-vs-WT.xlsx"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="warning" tabindex="0"><code>Warning in file.create(to[okay]): cannot create file
+'../Results/DE_RA-vs-WT.xlsx', reason 'No such file or directory'</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">write.xlsx</span><span class="op">(</span><span class="va">tab2</span>, file<span class="op">=</span><span class="st">"../Results/DE_TGFb-vs-WT.xlsx"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="warning" tabindex="0"><code>Warning in file.create(to[okay]): cannot create file
+'../Results/DE_TGFb-vs-WT.xlsx', reason 'No such file or directory'</code></pre>
+</div>
+</section><section><h2 class="section-heading" id="two-limma-approaches-trend-vs-voom">Two limma approaches: “trend” vs “voom”<a class="anchor" aria-label="anchor" href="#two-limma-approaches-trend-vs-voom"></a>
+</h2>
+<hr class="half-width">
+<p>Recall that there’s two flavours of <code>limma</code>:
+<code>trend</code> and <code>voom</code>. We’ve been using the
+<code>trend</code> approach, but now we’ll briefly turn to the
+<code>voom</code> approach. Both approaches are essentially the same,
+except for one key difference: <code>voom</code> first estimates
+“precision weights” (the details are beyond our scope) and incorporates
+them into the linear modelling step.</p>
+<p>Given you now know the <code>trend</code> approach, the
+<code>voom</code> approach is easy to summarise. We do all the same
+steps above, right up until before we create an <code>EList</code>, at
+which point we proceed as follows:</p>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># prepare a voom EList, containing "precision weights" from our DGEList and the same design X above</span></span>
+<span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu">voom</span><span class="op">(</span><span class="va">dge</span>, design<span class="op">=</span><span class="va">X</span>, plot<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># fit linear model (to get group means); "precision weights" will be incorporated</span></span>
+<span><span class="va">fit.voom</span> <span class="op">&lt;-</span> <span class="fu">lmFit</span><span class="op">(</span><span class="va">v</span>, design<span class="op">=</span><span class="va">X</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># fit contrasts using the same contrast matrix CM (for the relevant comparisons)</span></span>
+<span><span class="va">fit2.voom</span> <span class="op">&lt;-</span> <span class="fu">contrasts.fit</span><span class="op">(</span><span class="va">fit.voom</span>, contrasts<span class="op">=</span><span class="va">CM</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># test for DE using empirical Bayes moderated t-statistics</span></span>
+<span><span class="va">fit2.voom</span> <span class="op">&lt;-</span> <span class="fu">eBayes</span><span class="op">(</span><span class="va">fit2.voom</span>, trend<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co"># NOTE: trend=FALSE (see comments below)</span></span>
+<span></span>
+<span><span class="co"># DE summary and results</span></span>
+<span><span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu">decideTests</span><span class="op">(</span><span class="va">fit2.voom</span><span class="op">)</span></span>
+<span><span class="fu">summary</span><span class="op">(</span><span class="va">dt</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>       RA_WT TGFb_WT
+Down    2037    3160
+NotSig 10228    7886
+Up      1744    2963</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># top DE genes</span></span>
+<span><span class="fu">topTable</span><span class="op">(</span><span class="va">fit2.voom</span>, coef<span class="op">=</span><span class="st">"RA_WT"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>               EnsemblID        Symbol logFC AveExpr     t  P.Value adj.P.Val
+16476 ENSMUSG00000023961         Enpp4  3.37    5.25  43.0 9.58e-16  1.10e-11
+18334 ENSMUSG00000039982          Dtx4  2.88    6.25  41.4 1.57e-15  1.10e-11
+3877  ENSMUSG00000089672         Gp49a  3.46    6.60  37.5 5.89e-15  2.06e-11
+41478 ENSMUSG00000025245        Lztfl1  5.07    6.21  37.9 5.08e-15  2.06e-11
+3878  ENSMUSG00000062593        Lilrb4  3.49    6.00  34.5 1.82e-14  5.11e-11
+41476 ENSMUSG00000029530          Ccr9  7.77    6.47  32.3 4.34e-14  1.01e-10
+2169  ENSMUSG00000051998          Lax1 -1.42    7.09 -27.1 4.42e-13  6.88e-10
+970   ENSMUSG00000026009          Icos -1.62    6.91 -26.8 5.02e-13  7.03e-10
+8904  ENSMUSG00000021185 9030617O03Rik -4.14    3.36 -30.4 9.45e-14  1.66e-10
+30887 ENSMUSG00000029468         P2rx7  8.23    4.81  31.0 7.52e-14  1.51e-10
+         B
+16476 25.8
+18334 25.6
+3877  24.7
+41478 24.5
+3878  23.6
+41476 21.5
+2169  20.5
+970   20.4
+8904  20.2
+30887 20.1</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb33">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">topTable</span><span class="op">(</span><span class="va">fit2.voom</span>, coef<span class="op">=</span><span class="st">"TGFb_WT"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>               EnsemblID  Symbol logFC AveExpr     t  P.Value adj.P.Val    B
+17757 ENSMUSG00000024544 Ldlrad4  3.87    5.29  50.5 1.14e-16  1.59e-12 27.4
+14968 ENSMUSG00000022744  Cldnd1  2.39    5.01  35.3 1.34e-14  4.71e-11 23.9
+22483 ENSMUSG00000038400  Pmepa1  2.90    5.11  35.4 1.26e-14  4.71e-11 23.8
+6625  ENSMUSG00000020841     Cpd  5.00    4.86  37.4 6.05e-15  4.23e-11 23.8
+14875 ENSMUSG00000022657    Cd96  1.59    8.21  34.6 1.76e-14  4.92e-11 23.7
+23037 ENSMUSG00000027660    Skil  1.93    7.30  32.0 4.93e-14  1.15e-10 22.7
+40680 ENSMUSG00000032420    Nt5e  2.13    7.16  30.9 7.71e-14  1.54e-10 22.3
+601   ENSMUSG00000048234  Rnf149  1.79    5.33  30.2 1.04e-13  1.81e-10 21.9
+40268 ENSMUSG00000032402   Smad3 -1.76    5.76 -29.7 1.30e-13  2.02e-10 21.7
+1145  ENSMUSG00000026192    Atic -1.04    6.40 -27.1 4.30e-13  6.02e-10 20.5</code></pre>
+</div>
+<p>The results have the same interpretations as before, and we can also
+do the same checks as before (i.e. MD plots, p-value histograms, control
+genes) except that instead of checking an SA plot, we check the voom
+‘mean-variance’ trend plot produced automatically when
+<code>plot=TRUE</code> is specified in the voom function.</p>
+<p>Two important comments:</p>
+<ol style="list-style-type: decimal">
+<li>We specified <code>trend=FALSE</code> in the <code>eBayes</code> DE
+testing step. This is because the voom “precision weights” actually
+remove the trend in variability noted earlier, and so this step doesn’t
+need to use the ‘trend’ anymore.</li>
+<li>
+<code>voom</code> is recommended when the library sizes are very
+different (e.g. some libraries have size 2M while others have size 20M)
+because the “precision weights” are able to take these differences in
+library sizes into account.</li>
+</ol>
+<p>The library sizes aren’t very different in our example and so both
+<code>limma</code> approaches give essentially the same DE genes, as can
+be seen here:</p>
+<div class="codewrapper sourceCode" id="cb35">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># DE results</span></span>
+<span><span class="va">dt.trend</span> <span class="op">&lt;-</span> <span class="fu">decideTests</span><span class="op">(</span><span class="va">fit2</span><span class="op">)</span></span>
+<span><span class="va">dt.voom</span> <span class="op">&lt;-</span> <span class="fu">decideTests</span><span class="op">(</span><span class="va">fit2.voom</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># venn diagram comparisons</span></span>
+<span><span class="va">df1</span> <span class="op">&lt;-</span> <span class="fu">cbind</span><span class="op">(</span><span class="va">dt.trend</span><span class="op">[</span>,<span class="st">"RA_WT"</span><span class="op">]</span>, <span class="va">dt.voom</span><span class="op">[</span>,<span class="st">"RA_WT"</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu">cbind</span><span class="op">(</span><span class="va">dt.trend</span><span class="op">[</span>,<span class="st">"TGFb_WT"</span><span class="op">]</span>, <span class="va">dt.voom</span><span class="op">[</span>,<span class="st">"TGFb_WT"</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">par</span><span class="op">(</span>mfcol<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">vennDiagram</span><span class="op">(</span><span class="va">df1</span>,</span>
+<span>            main<span class="op">=</span><span class="st">"RA vs WT"</span>,</span>
+<span>            names<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="st">"trend"</span>,<span class="st">"voom"</span><span class="op">)</span>,</span>
+<span>            include<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="st">"up"</span>,<span class="st">"down"</span><span class="op">)</span>, </span>
+<span>            counts.col<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="st">"red3"</span>,<span class="st">"blue3"</span><span class="op">)</span>, </span>
+<span>            circle.col<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="st">"purple"</span>,<span class="st">"turquoise"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">vennDiagram</span><span class="op">(</span><span class="va">df2</span>,</span>
+<span>            main<span class="op">=</span><span class="st">"TGFb vs WT"</span>,</span>
+<span>            names<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="st">"trend"</span>,<span class="st">"voom"</span><span class="op">)</span>,</span>
+<span>            include<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="st">"up"</span>,<span class="st">"down"</span><span class="op">)</span>, </span>
+<span>            counts.col<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="st">"red3"</span>,<span class="st">"blue3"</span><span class="op">)</span>, </span>
+<span>            circle.col<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="st">"purple"</span>,<span class="st">"turquoise"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/03-de-with-limma-rendered-unnamed-chunk-16-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>FIXME</li>
+</ul>
+</div>
+</div>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+</section></section><section id="aio-04-summary"><p>Content from <a href="04-summary.html">Summary and exercise</a></p>
+<hr>
+<p>Last updated on 2025-10-21 |
+
+        <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/04-summary.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>FIXME</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>FIXME</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Let’s summarise by putting the key analysis code together with
+comments (for the RA vs WT comparison). Here’s the preliminaries
+etc.:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># organise data into a DGEList</span></span>
+<span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu">read.table</span><span class="op">(</span><span class="st">"data/GSE232852_CountsTable.txt"</span>, header<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">annotation</span> <span class="op">&lt;-</span> <span class="va">tab</span><span class="op">[</span>,<span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">counts</span> <span class="op">&lt;-</span> <span class="va">tab</span><span class="op">[</span>,<span class="op">-</span><span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="va">dge</span> <span class="op">&lt;-</span> <span class="fu">DGEList</span><span class="op">(</span>counts<span class="op">=</span><span class="va">counts</span>, genes<span class="op">=</span><span class="va">annotation</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># sample info and group vector</span></span>
+<span><span class="va">samples</span> <span class="op">&lt;-</span> <span class="fu">colnames</span><span class="op">(</span><span class="va">tab</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fu">c</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu">c</span><span class="op">(</span><span class="fu">rep</span><span class="op">(</span><span class="st">"RA"</span>,<span class="fl">3</span><span class="op">)</span>, <span class="fu">rep</span><span class="op">(</span><span class="st">"TGFb"</span>,<span class="fl">3</span><span class="op">)</span>, <span class="fu">rep</span><span class="op">(</span><span class="st">"RA_TGFb"</span>,<span class="fl">3</span><span class="op">)</span>, <span class="fu">rep</span><span class="op">(</span><span class="st">"WT"</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">data.frame</span><span class="op">(</span><span class="va">samples</span>, <span class="va">group</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu">factor</span><span class="op">(</span><span class="va">info</span><span class="op">$</span><span class="va">group</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># filter for low expression</span></span>
+<span><span class="va">i</span> <span class="op">&lt;-</span> <span class="fu">filterByExpr</span><span class="op">(</span><span class="va">dge</span>, group<span class="op">=</span><span class="va">group</span><span class="op">)</span></span>
+<span><span class="va">dge</span> <span class="op">&lt;-</span> <span class="va">dge</span><span class="op">[</span><span class="va">i</span>,,keep.lib.size<span class="op">=</span><span class="cn">FALSE</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># check library sizes</span></span>
+<span><span class="va">lib.size.millons</span> <span class="op">&lt;-</span> <span class="fu">colSums</span><span class="op">(</span><span class="va">dge</span><span class="op">$</span><span class="va">counts</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1e6</span></span>
+<span><span class="fu">barplot</span><span class="op">(</span><span class="va">lib.size.millons</span>, las<span class="op">=</span><span class="fl">2</span>, cex.names<span class="op">=</span><span class="fl">0.8</span>, main<span class="op">=</span><span class="st">"Library size (millons)"</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>h<span class="op">=</span><span class="fl">20</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red2"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># visualisation: raw data</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu">log2</span><span class="op">(</span><span class="va">dge</span><span class="op">$</span><span class="va">counts</span> <span class="op">+</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">pca</span> <span class="op">&lt;-</span> <span class="fu">prcomp</span><span class="op">(</span><span class="fu">t</span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, center<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span>
+<span><span class="fu">autoplot</span><span class="op">(</span><span class="va">pca</span>, <span class="fu">data.frame</span><span class="op">(</span>group<span class="op">=</span><span class="va">group</span><span class="op">)</span>, col<span class="op">=</span><span class="st">'group'</span>, size<span class="op">=</span><span class="fl">4</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"PCA plot"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cols.group</span> <span class="op">&lt;-</span> <span class="va">group</span></span>
+<span><span class="fu">levels</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu">hue_pal</span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="fu">boxplot</span><span class="op">(</span><span class="va">y</span>, col<span class="op">=</span><span class="fu">as.character</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span>, outline<span class="op">=</span><span class="cn">FALSE</span>, las<span class="op">=</span><span class="fl">2</span>, cex.axis<span class="op">=</span><span class="fl">0.7</span>, main<span class="op">=</span><span class="st">"Boxplots"</span><span class="op">)</span></span>
+<span><span class="va">RLE</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">-</span> <span class="fu">rowMedians</span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="fu">boxplot</span><span class="op">(</span><span class="va">RLE</span>, col<span class="op">=</span><span class="fu">as.character</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span>, outline<span class="op">=</span><span class="cn">FALSE</span>, las<span class="op">=</span><span class="fl">2</span>, cex.axis<span class="op">=</span><span class="fl">0.7</span>, main<span class="op">=</span><span class="st">"RLE plot"</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>, col<span class="op">=</span><span class="st">"grey20"</span>, lwd<span class="op">=</span><span class="fl">3</span>, lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># normalise for library size and composition</span></span>
+<span><span class="va">dge</span> <span class="op">&lt;-</span> <span class="fu">calcNormFactors</span><span class="op">(</span><span class="va">dge</span>, method<span class="op">=</span><span class="st">"TMM"</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu">cpm</span><span class="op">(</span><span class="va">dge</span>, log<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># visualisation: normalised data</span></span>
+<span><span class="va">pca</span> <span class="op">&lt;-</span> <span class="fu">prcomp</span><span class="op">(</span><span class="fu">t</span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, center<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">autoplot</span><span class="op">(</span><span class="va">pca</span>, <span class="fu">data.frame</span><span class="op">(</span>group<span class="op">=</span><span class="va">group</span><span class="op">)</span>, col<span class="op">=</span><span class="st">'group'</span>, size<span class="op">=</span><span class="fl">4</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"PCA plot"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cols.group</span> <span class="op">&lt;-</span> <span class="va">group</span></span>
+<span><span class="fu">levels</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu">hue_pal</span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="fu">boxplot</span><span class="op">(</span><span class="va">y</span>, col<span class="op">=</span><span class="fu">as.character</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span>, outline<span class="op">=</span><span class="cn">FALSE</span>, las<span class="op">=</span><span class="fl">2</span>, cex.axis<span class="op">=</span><span class="fl">0.5</span>, main<span class="op">=</span><span class="st">"Boxplots"</span><span class="op">)</span></span>
+<span><span class="va">RLE</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">-</span> <span class="fu">rowMedians</span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="fu">boxplot</span><span class="op">(</span><span class="va">RLE</span>, col<span class="op">=</span><span class="fu">as.character</span><span class="op">(</span><span class="va">cols.group</span><span class="op">)</span>, outline<span class="op">=</span><span class="cn">FALSE</span>, las<span class="op">=</span><span class="fl">2</span>, cex.axis<span class="op">=</span><span class="fl">0.5</span>, main<span class="op">=</span><span class="st">"RLE plot"</span><span class="op">)</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>, col<span class="op">=</span><span class="st">"grey20"</span>, lwd<span class="op">=</span><span class="fl">3</span>, lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre>
+</div>
+<p>If the library sizes aren’t too different, we proceed with
+<code>limma-trend</code>:</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># organise EList</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu">new</span><span class="op">(</span><span class="st">"EList"</span><span class="op">)</span></span>
+<span><span class="va">y</span><span class="op">$</span><span class="va">E</span> <span class="op">&lt;-</span> <span class="fu">cpm</span><span class="op">(</span><span class="va">dge</span>, log<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">y</span><span class="op">$</span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="va">dge</span><span class="op">$</span><span class="va">genes</span></span>
+<span></span>
+<span><span class="co"># design matrix</span></span>
+<span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu">model.matrix</span><span class="op">(</span><span class="op">~</span><span class="fl">0</span> <span class="op">+</span> <span class="va">group</span><span class="op">)</span></span>
+<span><span class="fu">colnames</span><span class="op">(</span><span class="va">X</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu">levels</span><span class="op">(</span><span class="va">group</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># fit linear model (to get group means)</span></span>
+<span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">lmFit</span><span class="op">(</span><span class="va">y</span>, design<span class="op">=</span><span class="va">X</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># make contrasts</span></span>
+<span><span class="va">CM</span> <span class="op">&lt;-</span> <span class="fu">makeContrasts</span><span class="op">(</span></span>
+<span>  RA_WT   <span class="op">=</span> <span class="va">RA</span> <span class="op">-</span> <span class="va">WT</span>,</span>
+<span>  TGFb_WT <span class="op">=</span> <span class="va">TGFb</span> <span class="op">-</span> <span class="va">WT</span>,</span>
+<span>  levels<span class="op">=</span><span class="va">X</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># fit contrasts</span></span>
+<span><span class="va">fit2</span> <span class="op">&lt;-</span> <span class="fu">contrasts.fit</span><span class="op">(</span><span class="va">fit</span>, contrasts<span class="op">=</span><span class="va">CM</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># test for DE</span></span>
+<span><span class="va">fit2</span> <span class="op">&lt;-</span> <span class="fu">eBayes</span><span class="op">(</span><span class="va">fit2</span>, trend<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># some checks</span></span>
+<span><span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu">decideTests</span><span class="op">(</span><span class="va">fit2</span><span class="op">)</span></span>
+<span><span class="fu">plotSA</span><span class="op">(</span><span class="va">fit2</span><span class="op">)</span> <span class="co"># SA plot</span></span>
+<span><span class="fu">plotMD</span><span class="op">(</span><span class="va">fit2</span>, coef<span class="op">=</span><span class="st">"RA_WT"</span>, status<span class="op">=</span><span class="va">dt</span><span class="op">[</span>,<span class="st">"RA_WT"</span><span class="op">]</span>, cex<span class="op">=</span><span class="fl">0.6</span>, main<span class="op">=</span><span class="st">"MD-plot: RA vs WT"</span><span class="op">)</span> <span class="co"># MD plot</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"green2"</span><span class="op">)</span></span>
+<span><span class="fu">hist</span><span class="op">(</span><span class="va">fit2</span><span class="op">$</span><span class="va">p.value</span><span class="op">[</span>,<span class="st">"RA_WT"</span><span class="op">]</span>, col<span class="op">=</span><span class="st">"grey"</span>, xlab<span class="op">=</span><span class="st">"p-value"</span>, main<span class="op">=</span><span class="st">"p-value histogram: RA vs WT"</span><span class="op">)</span> <span class="co"># p-value hist</span></span>
+<span></span>
+<span><span class="co"># DE results</span></span>
+<span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu">topTable</span><span class="op">(</span><span class="va">fit2</span>, coef<span class="op">=</span><span class="st">"RA_WT"</span>, n<span class="op">=</span><span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="fu">write.xlsx</span><span class="op">(</span><span class="va">tab</span>, file<span class="op">=</span><span class="st">"../Results/DE_limma-trend_RA-vs-WT.xlsx"</span><span class="op">)</span></span></code></pre>
+</div>
+<p>If the library sizes are very different, proceed with
+<code>limma-voom</code>:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># organise voom EList</span></span>
+<span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu">voom</span><span class="op">(</span><span class="va">dge</span>, design<span class="op">=</span><span class="va">X</span>, plot<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="co"># same X as above</span></span>
+<span> </span>
+<span><span class="co"># fit linear model (to get group means)</span></span>
+<span><span class="va">fit.voom</span> <span class="op">&lt;-</span> <span class="fu">lmFit</span><span class="op">(</span><span class="va">v</span>, design<span class="op">=</span><span class="va">X</span><span class="op">)</span></span>
+<span> </span>
+<span><span class="co"># fit contrasts</span></span>
+<span><span class="va">fit2.voom</span> <span class="op">&lt;-</span> <span class="fu">contrasts.fit</span><span class="op">(</span><span class="va">fit.voom</span>, contrasts<span class="op">=</span><span class="va">CM</span><span class="op">)</span> <span class="co"># same CM as above</span></span>
+<span></span>
+<span><span class="co"># test for DE</span></span>
+<span><span class="va">fit2.voom</span> <span class="op">&lt;-</span> <span class="fu">eBayes</span><span class="op">(</span><span class="va">fit2.voom</span>, trend<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co"># NOTE: trend=FALSE</span></span>
+<span> </span>
+<span><span class="co"># some checks</span></span>
+<span><span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu">decideTests</span><span class="op">(</span><span class="va">fit2.voom</span><span class="op">)</span></span>
+<span><span class="fu">plotMD</span><span class="op">(</span><span class="va">fit2.voom</span>, coef<span class="op">=</span><span class="st">"RA_WT"</span>, status<span class="op">=</span><span class="va">dt</span><span class="op">[</span>,<span class="st">"RA_WT"</span><span class="op">]</span>, cex<span class="op">=</span><span class="fl">0.6</span>, main<span class="op">=</span><span class="st">"MD-plot: RA vs WT"</span><span class="op">)</span> <span class="co"># MD plot</span></span>
+<span><span class="fu">abline</span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"green2"</span><span class="op">)</span></span>
+<span><span class="fu">hist</span><span class="op">(</span><span class="va">fit2</span><span class="op">$</span><span class="va">p.value</span><span class="op">[</span>,<span class="st">"RA_WT"</span><span class="op">]</span>, col<span class="op">=</span><span class="st">"grey"</span>, xlab<span class="op">=</span><span class="st">"p-value"</span>, main<span class="op">=</span><span class="st">"p-value histogram: RA vs WT"</span><span class="op">)</span> <span class="co"># p-value hist</span></span>
+<span></span>
+<span><span class="co"># DE results</span></span>
+<span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu">topTable</span><span class="op">(</span><span class="va">fit2.voom</span>, coef<span class="op">=</span><span class="st">"RA_WT"</span>, n<span class="op">=</span><span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="fu">write.xlsx</span><span class="op">(</span><span class="va">tab</span>, file<span class="op">=</span><span class="st">"../Results/DE_limma-voom_RA-vs-WT.xlsx"</span><span class="op">)</span></span></code></pre>
+</div>
+<p>To reinforce what you’ve learnt, try your hand at finding DE results
+for the RA+TGFb vs WT comparison using both limma approaches.</p>
+<p>Solution:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># new contrast matrix</span></span>
+<span><span class="va">CM2</span> <span class="op">&lt;-</span> <span class="fu">makeContrasts</span><span class="op">(</span></span>
+<span>  RA_WT      <span class="op">=</span> <span class="va">RA</span> <span class="op">-</span> <span class="va">WT</span>,</span>
+<span>  TGFb_WT    <span class="op">=</span> <span class="va">TGFb</span> <span class="op">-</span> <span class="va">WT</span>,</span>
+<span>  RA.TGFb_WT <span class="op">=</span> <span class="va">RA_TGFb</span> <span class="op">-</span> <span class="va">WT</span>, <span class="co"># new comparison</span></span>
+<span>  levels<span class="op">=</span><span class="va">X</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># limma-trend</span></span>
+<span><span class="va">fit2</span> <span class="op">&lt;-</span> <span class="fu">contrasts.fit</span><span class="op">(</span><span class="va">fit</span>, contrasts<span class="op">=</span><span class="va">CM2</span><span class="op">)</span></span>
+<span><span class="va">fit2</span> <span class="op">&lt;-</span> <span class="fu">eBayes</span><span class="op">(</span><span class="va">fit2</span>, trend<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu">decideTests</span><span class="op">(</span><span class="va">fit2</span><span class="op">)</span></span>
+<span><span class="fu">summary</span><span class="op">(</span><span class="va">dt</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu">topTable</span><span class="op">(</span><span class="va">fit2</span>, coef<span class="op">=</span><span class="st">"RA.TGFb_WT"</span>, n<span class="op">=</span><span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="fu">write.xlsx</span><span class="op">(</span><span class="va">tab</span>, file<span class="op">=</span><span class="st">"../Results/DE_limma-trend_RA.TGFb_WT.xlsx"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># limma-voom</span></span>
+<span><span class="va">fit2.voom</span> <span class="op">&lt;-</span> <span class="fu">contrasts.fit</span><span class="op">(</span><span class="va">fit.voom</span>, contrasts<span class="op">=</span><span class="va">CM2</span><span class="op">)</span></span>
+<span><span class="va">fit2.voom</span> <span class="op">&lt;-</span> <span class="fu">eBayes</span><span class="op">(</span><span class="va">fit2.voom</span>, trend<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu">decideTests</span><span class="op">(</span><span class="va">fit2.voom</span><span class="op">)</span></span>
+<span><span class="fu">summary</span><span class="op">(</span><span class="va">dt</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu">topTable</span><span class="op">(</span><span class="va">fit2.voom</span>, coef<span class="op">=</span><span class="st">"RA.TGFb_WT"</span>, n<span class="op">=</span><span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="fu">write.xlsx</span><span class="op">(</span><span class="va">tab</span>, file<span class="op">=</span><span class="st">"../Results/DE_limma-voom_RA.TGFb_WT.xlsx"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level1">
+<h1 id="visualisation-of-results">Visualisation of results<a class="anchor" aria-label="anchor" href="#visualisation-of-results"></a>
+</h1>
+<p>There are several common ways to visualise DE results, e.g. volcano
+plots, MD plots (already used for checking above but made nicer here),
+and heatmaps. Let’s produce basic examples of each, for the RA vs WT
+comparison.</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># organize data frame for volcano and MD plots</span></span>
+<span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu">topTable</span><span class="op">(</span><span class="va">fit2</span>, coef<span class="op">=</span><span class="st">"RA_WT"</span>, n<span class="op">=</span><span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="va">logFC</span> <span class="op">&lt;-</span> <span class="va">tab</span><span class="op">$</span><span class="va">logFC</span></span>
+<span><span class="va">p.value</span> <span class="op">&lt;-</span> <span class="va">tab</span><span class="op">$</span><span class="va">P.Value</span></span>
+<span><span class="va">A</span> <span class="op">&lt;-</span> <span class="va">tab</span><span class="op">$</span><span class="va">AveExpr</span></span>
+<span><span class="va">Gene</span> <span class="op">&lt;-</span> <span class="va">tab</span><span class="op">$</span><span class="va">Symbol</span></span>
+<span></span>
+<span><span class="va">Status</span> <span class="op">&lt;-</span> <span class="fu">rep</span><span class="op">(</span><span class="st">"Not DE"</span>, <span class="fu">nrow</span><span class="op">(</span><span class="va">tab</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Status</span><span class="op">[</span><span class="va">tab</span><span class="op">$</span><span class="va">logFC</span><span class="op">&gt;</span><span class="fl">0</span> <span class="op">&amp;</span> <span class="va">tab</span><span class="op">$</span><span class="va">adj.P.Val</span><span class="op">&lt;</span><span class="fl">0.05</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Up"</span></span>
+<span><span class="va">Status</span><span class="op">[</span><span class="va">tab</span><span class="op">$</span><span class="va">logFC</span><span class="op">&lt;</span><span class="fl">0</span> <span class="op">&amp;</span> <span class="va">tab</span><span class="op">$</span><span class="va">adj.P.Val</span><span class="op">&lt;</span><span class="fl">0.05</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Down"</span> <span class="co"># table(Status)</span></span>
+<span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">data.frame</span><span class="op">(</span><span class="va">logFC</span>, <span class="va">p.value</span>, <span class="va">A</span>, <span class="va">Gene</span>, <span class="va">Status</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># prepare some annotation</span></span>
+<span><span class="va">genes</span> <span class="op">&lt;-</span> <span class="fu">c</span><span class="op">(</span><span class="st">"Hic1"</span>,<span class="st">"Itgae"</span>,<span class="st">"Zfp683"</span><span class="op">)</span></span>
+<span><span class="va">i</span> <span class="op">&lt;-</span> <span class="fu">match</span><span class="op">(</span><span class="va">genes</span>, <span class="va">df</span><span class="op">$</span><span class="va">Gene</span><span class="op">)</span></span>
+<span><span class="va">HL</span> <span class="op">&lt;-</span> <span class="va">df</span><span class="op">[</span><span class="va">i</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="co"># basic volcano plot</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span>data<span class="op">=</span><span class="va">df</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">logFC</span>, y<span class="op">=</span><span class="op">-</span><span class="fu">log10</span><span class="op">(</span><span class="va">p.value</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>shape<span class="op">=</span><span class="fl">16</span>, <span class="fu">aes</span><span class="op">(</span>color<span class="op">=</span><span class="va">Status</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_color_manual</span><span class="op">(</span>values<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="st">"blue3"</span>,<span class="st">"grey70"</span>,<span class="st">"red3"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_label_repel</span><span class="op">(</span>data<span class="op">=</span><span class="va">HL</span>, <span class="fu">aes</span><span class="op">(</span>label<span class="op">=</span><span class="va">Gene</span><span class="op">)</span>, box.padding<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title<span class="op">=</span><span class="st">"Volcano: RA vs WT"</span>, x<span class="op">=</span><span class="st">"log2(fold-change)"</span>, y<span class="op">=</span><span class="st">"-log10(p-value)"</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/04-summary-rendered-unnamed-chunk-6-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># basic MD plot</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span>data<span class="op">=</span><span class="va">df</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">A</span>, y<span class="op">=</span><span class="va">logFC</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>shape<span class="op">=</span><span class="fl">16</span>, <span class="fu">aes</span><span class="op">(</span>color<span class="op">=</span><span class="va">Status</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_color_manual</span><span class="op">(</span>values<span class="op">=</span><span class="fu">c</span><span class="op">(</span><span class="st">"blue3"</span>,<span class="st">"grey70"</span>,<span class="st">"red3"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_hline</span><span class="op">(</span>yintercept<span class="op">=</span><span class="fl">0</span>, linetype<span class="op">=</span><span class="fl">2</span>, colour<span class="op">=</span><span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_label_repel</span><span class="op">(</span>data<span class="op">=</span><span class="va">HL</span>, <span class="fu">aes</span><span class="op">(</span>label<span class="op">=</span><span class="va">Gene</span><span class="op">)</span>, box.padding<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title<span class="op">=</span><span class="st">"Volcano: RA vs WT"</span>, x<span class="op">=</span><span class="st">"Average log-expression"</span>, y<span class="op">=</span><span class="st">"log2(fold-change)"</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/04-summary-rendered-unnamed-chunk-6-2.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># organize data frame for heatmap</span></span>
+<span><span class="va">top.genes</span> <span class="op">&lt;-</span> <span class="va">tab</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span>,<span class="op">]</span><span class="op">$</span><span class="va">Symbol</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">y</span><span class="op">$</span><span class="va">E</span></span>
+<span><span class="fu">rownames</span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">y</span><span class="op">$</span><span class="va">genes</span><span class="op">$</span><span class="va">Symbol</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span><span class="op">[</span><span class="va">top.genes</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="co"># basic heatmap</span></span>
+<span><span class="fu">pheatmap</span><span class="op">(</span></span>
+<span>  <span class="va">df</span>,</span>
+<span>  border_color<span class="op">=</span><span class="cn">NA</span>, </span>
+<span>  scale<span class="op">=</span><span class="st">"row"</span>, </span>
+<span>  cluster_rows<span class="op">=</span><span class="cn">TRUE</span>,</span>
+<span>  cluster_cols<span class="op">=</span><span class="cn">FALSE</span>,</span>
+<span>  treeheight_row<span class="op">=</span><span class="fl">0</span>,</span>
+<span>  main<span class="op">=</span><span class="st">"Top 50 DE genes: RA vs WT"</span>,</span>
+<span>  fontsize_row<span class="op">=</span><span class="fl">6</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/04-summary-rendered-unnamed-chunk-7-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+</div>
+<div class="section level1">
+<h1 id="getting-data">Getting data<a class="anchor" aria-label="anchor" href="#getting-data"></a>
+</h1>
+<p>Now that you have some basic analysis skills, you’ll want to get your
+hands on some data, e.g. publicly available RNA-seq counts tables. As
+we’ve seen, one place to get data is <a href="https://www.ncbi.nlm.nih.gov/geo" class="external-link">Gene Expression Omnibus
+(GEO)</a>. But, GEO can be hit-and-miss: sometimes counts tables are
+available as supplementary files (as we saw), but sometimes they’re not.
+Although, sometimes there are other ways of getting counts tables on
+GEO. It’s really a bit of a mess—you just need to get on there and try
+your luck.</p>
+<p>Thankfully, there are alternatives. For example, for human and mouse
+data, <a href="https://dev.ilincs.org/apps/grein/?gse=" class="external-link">GREIN</a> is a
+real gem: its search interface is clear and simple to use and the counts
+data and sample information is uniformly pre-packaged and ready for easy
+download. Check it out.</p>
+<p>And have fun!</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>FIXME</li>
+</ul>
+</div>
+</div>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+</div></section>
 </div>
     </main>
 </div>
@@ -505,12 +2257,12 @@ any links that you are not going to use.
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
 
-        <a href="https://github.com/melbournebioinformatics/workbench-template-rmd/edit/main/README.md" class="external-link">Edit on GitHub</a>
+        <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/README.md" class="external-link">Edit on GitHub</a>
 
 	
-        | <a href="https://github.com/melbournebioinformatics/workbench-template-rmd/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
-        | <a href="https://github.com/melbournebioinformatics/workbench-template-rmd/" class="external-link">Source</a></p>
-				<p><a href="https://github.com/melbournebioinformatics/workbench-template-rmd/blob/main/CITATION.cff" class="external-link">Cite</a> | <a href="mailto:fixme@fixme.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+        | <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
+        | <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/" class="external-link">Source</a></p>
+				<p><a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/blob/main/CITATION.cff" class="external-link">Cite</a> | <a href="mailto:vinicius.salazar%20%5B%20at%20%5D%20unimelb.edu.au">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
 
@@ -534,12 +2286,12 @@ any links that you are not going to use.
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "software, data, lesson",
+  "keywords": "transcriptomics, differential expression, high dimensional, multivariate",
   "name": "All in One View",
   "creativeWorkStatus": "active",
   "url": "melbournebioinformatics.github.io/uom-varnish/aio.html",
   "identifier": "melbournebioinformatics.github.io/uom-varnish/aio.html",
-  "dateCreated": "2025-10-21",
+  "dateCreated": "2025-10-26",
   "dateModified": "2025-10-21",
   "datePublished": "2025-10-21"
 }
