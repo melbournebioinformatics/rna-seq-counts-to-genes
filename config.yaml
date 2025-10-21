@@ -7,35 +7,35 @@
 # mb: Melbourne Bioinformatics
 # mig: Melbourne Integrative Genomics
 # wehi: Walter and Eliza Hall Institute
-carpentry: 'uom'
+carpentry: 'mb'
 
 # Alt-text description of the lesson.
-carpentry_description: 'Lesson Description'
+carpentry_description: 'RNA-seq: from counts to DE genes'
 
 # Overall title for pages.
-title: 'Lesson Title' # FIXME
+title: 'RNA-seq: from counts to DE genes' 
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: ~ # FIXME
+created: '2025-10-26'
 
 # Comma-separated list of keywords for the lesson
-keywords: 'software, data, lesson' # FIXME
+keywords: 'transcriptomics, differential expression, high dimensional, multivariate' 
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha' # FIXME
+life_cycle: 'alpha' 
 
 # License of the lesson
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/melbournebioinformatics/workbench-template-rmd' # FIXME
+source: 'https://github.com/melbournebioinformatics/rna-seq-counts-to-genes' 
 
 # Default branch of your lesson
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'fixme@fixme.org' # FIXME
+contact: 'vinicius.salazar [ at ] unimelb.edu.au' 
 
 # Navigation ------------------------------------------------
 #
@@ -62,6 +62,9 @@ contact: 'fixme@fixme.org' # FIXME
 # Order of episodes in your lesson
 episodes: 
 - introduction.Rmd
+#- filtering-visualisation-normalisation.Rmd
+#- de-with-limma.Rmd
+#- summary.Rmd
 
 # Information for Learners
 learners: 
