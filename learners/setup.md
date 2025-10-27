@@ -38,7 +38,7 @@ If your package is in a different R repository, such as Bioconductor or GitHub, 
 ```r
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install(version = "3.21")
+BiocManager::install()
 ```
 
 For devtools, you can simply do:
