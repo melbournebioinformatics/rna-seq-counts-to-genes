@@ -10,10 +10,10 @@
 carpentry: 'mb'
 
 # Alt-text description of the lesson.
-carpentry_description: 'RNA-seq: from counts to DE genes'
+carpentry_description: 'RNA-seq: from counts to differentially expressed genes'
 
 # Overall title for pages.
-title: 'RNA-seq: from counts to DE genes'
+title: 'RNA-seq: from counts to differentially expressed genes'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2025-10-26'
