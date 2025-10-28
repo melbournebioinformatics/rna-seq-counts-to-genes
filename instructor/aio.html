@@ -346,7 +346,7 @@
         
 <section id="aio-01-introduction"><p>Content from <a href="01-introduction.html">Introduction</a></p>
 <hr>
-<p>Last updated on 2025-10-21 |
+<p>Last updated on 2025-10-28 |
 
         <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/01-introduction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -361,7 +361,16 @@
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>FIXME</li>
+<li>What is RNA-seq and what kind of biological questions can it
+answer?</li>
+<li>What is a “counts table” and why is it central to RNA-seq data
+analysis?</li>
+<li>Why are biological replicates essential for meaningful statistical
+analysis?</li>
+<li>How can we organize RNA-seq count data in R for downstream
+analysis?</li>
+<li>What preliminary steps and R packages are needed to begin a DE
+analysis?</li>
 </ul>
 </div>
 </div>
@@ -371,7 +380,16 @@
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>FIXME</li>
+<li>Describe the overall workflow of RNA-seq from sequencing to count
+tables.</li>
+<li>Explain the difference between biological and technical replicates
+and their impact on analysis.</li>
+<li>Identify the key components of an RNA-seq count table.</li>
+<li>Load and inspect RNA-seq data in R.</li>
+<li>Organize data into a DGEList and prepare accompanying sample
+information.</li>
+<li>Load the R packages needed for RNA-seq differential expression
+analysis.</li>
 </ul>
 </div>
 </div>
@@ -742,7 +760,18 @@ Persist objects between episodes
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>FIXME</li>
+<li>RNA-seq measures gene expression across the transcriptome, producing
+count data per gene per sample.</li>
+<li>The main goal of DE analysis is to identify genes with expression
+differences between conditions.</li>
+<li>Biological replicates are required for valid statistical inference;
+technical replicates must be combined or carefully handled.</li>
+<li>A “counts table” is the starting point for most RNA-seq analyses in
+R.</li>
+<li>Preparing a DGEList object and sample metadata correctly is
+essential for downstream analyses with limma and edgeR.</li>
+<li>Understanding the data structure and design factors early helps
+ensure trustworthy DE results later.</li>
 </ul>
 </div>
 </div>
@@ -753,7 +782,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-02-filtering-visualisation-normalisation"><p>Content from <a href="02-filtering-visualisation-normalisation.html">First steps: filtering, visualisation, and basic normalisation</a></p>
 <hr>
-<p>Last updated on 2025-10-21 |
+<p>Last updated on 2025-10-28 |
 
         <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/02-filtering-visualisation-normalisation.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -768,7 +797,18 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>FIXME</li>
+<li>Why should we filter out genes with little or no expression before
+differential expression analysis?</li>
+<li>What does “library size” mean, and why is it important to
+check?</li>
+<li>How can visualisation help us detect technical variation in RNA-seq
+data?</li>
+<li>What are the main sources of technical variation in RNA-seq
+experiments?</li>
+<li>How and why do we normalise RNA-seq data?</li>
+<li>What are CPM and TMM, and how do they help make samples
+comparable?</li>
+<li>How can we assess whether normalisation has worked correctly?</li>
 </ul>
 </div>
 </div>
@@ -778,7 +818,20 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>FIXME</li>
+<li>Filter out lowly expressed genes to reduce noise and improve
+statistical power.</li>
+<li>Inspect and interpret library sizes to identify potential
+problems.</li>
+<li>Create and interpret PCA, boxplot, and RLE visualisations to assess
+technical variation.</li>
+<li>Explain the difference between biological and technical variation in
+RNA-seq data.</li>
+<li>Perform basic normalisation to correct for library size and
+compositional differences.</li>
+<li>Evaluate whether normalisation has successfully reduced unwanted
+technical variation.</li>
+<li>Recognise when batch effects or other confounding factors may
+require more advanced correction methods.</li>
 </ul>
 </div>
 </div>
@@ -1114,7 +1167,22 @@ likely get rubbish results.</p>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>FIXME</li>
+<li>Filtering lowly expressed genes improves signal-to-noise and
+reliability of DE results.</li>
+<li>Library size influences count comparisons; larger libraries
+generally provide more statistical power.</li>
+<li>Visualisation (PCA, boxplots, RLE) is essential to detect technical
+variation and assess data quality.</li>
+<li>Log transformation of counts stabilises variance and makes visual
+patterns easier to interpret.</li>
+<li>Normalisation corrects for library size and compositional biases,
+allowing fair comparison across samples.</li>
+<li>TMM (trimmed mean of M-values) is a common method for normalising
+RNA-seq data using edgeR.</li>
+<li>Good normalisation removes unwanted technical variation while
+preserving biological signal.</li>
+<li>Persistent technical effects (e.g. batch effects) require more
+advanced correction strategies beyond basic normalisation.</li>
 </ul>
 </div>
 </div>
@@ -1125,7 +1193,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-03-de-with-limma"><p>Content from <a href="03-de-with-limma.html">Differential expression with limma</a></p>
 <hr>
-<p>Last updated on 2025-10-21 |
+<p>Last updated on 2025-10-28 |
 
         <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/03-de-with-limma.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -1140,7 +1208,14 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>FIXME</li>
+<li>How does the limma method identify differentially expressed
+genes?</li>
+<li>Why are linear models used to analyse RNA-seq data?</li>
+<li>What role does empirical Bayes moderation play in improving DE
+analysis?</li>
+<li>How can we assess whether DE results are trustworthy?</li>
+<li>What is the difference between the limma-trend and limma-voom
+approaches?</li>
 </ul>
 </div>
 </div>
@@ -1150,7 +1225,16 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>FIXME</li>
+<li>Understand how RNA-seq data can be modelled using linear models in
+limma.</li>
+<li>Perform DE testing using moderated t-statistics and empirical
+Bayes.</li>
+<li>Interpret log-fold-changes, p-values, and adjusted p-values
+(FDR).</li>
+<li>Evaluate DE results with diagnostic plots (SA, MD, p-value
+histograms).</li>
+<li>Compare and choose between the limma-trend and limma-voom
+approaches.</li>
 </ul>
 </div>
 </div>
@@ -1936,7 +2020,16 @@ be seen here:</p>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>FIXME</li>
+<li>RNA-seq data can be modelled with linear models after log
+transformation.</li>
+<li>The limma workflow estimates group means and contrasts, then tests
+for DE.</li>
+<li>Empirical Bayes moderation stabilises variances, improving
+reliability.</li>
+<li>Adjusted p-values (FDR) control false discoveries across many
+tests.</li>
+<li>limma-trend and limma-voom give similar results unless library sizes
+differ greatly.</li>
 </ul>
 </div>
 </div>
@@ -1947,7 +2040,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-04-summary"><p>Content from <a href="04-summary.html">Summary and exercise</a></p>
 <hr>
-<p>Last updated on 2025-10-21 |
+<p>Last updated on 2025-10-28 |
 
         <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/04-summary.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -1962,7 +2055,13 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>FIXME</li>
+<li>How can we summarise the key steps in an RNA-seq differential
+expression workflow?</li>
+<li>When should we use limma-trend versus limma-voom?</li>
+<li>How can we visualise and interpret DE results?</li>
+<li>What plots help communicate DE findings effectively?</li>
+<li>Where can we find RNA-seq count data to practise these
+analyses?</li>
 </ul>
 </div>
 </div>
@@ -1972,7 +2071,13 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>FIXME</li>
+<li>Consolidate the complete RNA-seq DE workflow from filtering to
+visualisation.</li>
+<li>Apply both limma-trend and limma-voom to new comparisons
+independently.</li>
+<li>Generate and interpret volcano, MD, and heatmap plots.</li>
+<li>Recognise reliable sources for public RNA-seq count data.</li>
+<li>Gain confidence reproducing and extending DE analyses.</li>
 </ul>
 </div>
 </div>
@@ -2241,7 +2346,16 @@ download. Check it out.</p>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>FIXME</li>
+<li>The full DE workflow combines filtering, normalisation, modelling,
+and testing.</li>
+<li>limma-trend and limma-voom differ mainly in handling library size
+variability.</li>
+<li>Visualisations such as volcano plots, MD plots, and heatmaps
+summarise DE results clearly.</li>
+<li>Public repositories like GEO and GREIN provide accessible RNA-seq
+count data.</li>
+<li>Mastering reproducible code structure ensures robust and transparent
+RNA-seq analysis.</li>
 </ul>
 </div>
 </div>

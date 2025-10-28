@@ -311,7 +311,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Introduction</h1>
-        <p>Last updated on 2025-10-21 |
+        <p>Last updated on 2025-10-28 |
 
         <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/01-introduction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -332,7 +332,16 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>FIXME</li>
+<ul><li>What is RNA-seq and what kind of biological questions can it
+answer?</li>
+<li>What is a “counts table” and why is it central to RNA-seq data
+analysis?</li>
+<li>Why are biological replicates essential for meaningful statistical
+analysis?</li>
+<li>How can we organize RNA-seq count data in R for downstream
+analysis?</li>
+<li>What preliminary steps and R packages are needed to begin a DE
+analysis?</li>
 </ul></div>
 </div>
 </div>
@@ -340,7 +349,16 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>FIXME</li>
+<ul><li>Describe the overall workflow of RNA-seq from sequencing to count
+tables.</li>
+<li>Explain the difference between biological and technical replicates
+and their impact on analysis.</li>
+<li>Identify the key components of an RNA-seq count table.</li>
+<li>Load and inspect RNA-seq data in R.</li>
+<li>Organize data into a DGEList and prepare accompanying sample
+information.</li>
+<li>Load the R packages needed for RNA-seq differential expression
+analysis.</li>
 </ul></div>
 </div>
 </div>
@@ -686,7 +704,18 @@ Persist objects between episodes
 <span class="callout-header">Key Points</span>
 <div class="callout-inner">
 <div class="callout-content">
-<ul><li>FIXME</li>
+<ul><li>RNA-seq measures gene expression across the transcriptome, producing
+count data per gene per sample.</li>
+<li>The main goal of DE analysis is to identify genes with expression
+differences between conditions.</li>
+<li>Biological replicates are required for valid statistical inference;
+technical replicates must be combined or carefully handled.</li>
+<li>A “counts table” is the starting point for most RNA-seq analyses in
+R.</li>
+<li>Preparing a DGEList object and sample metadata correctly is
+essential for downstream analyses with limma and edgeR.</li>
+<li>Understanding the data structure and design factors early helps
+ensure trustworthy DE results later.</li>
 </ul></div>
 </div>
 </div>
@@ -752,7 +781,7 @@ any links that you are not going to use.
   "url": "melbournebioinformatics.github.io/uom-varnish/instructor/01-introduction.html",
   "identifier": "melbournebioinformatics.github.io/uom-varnish/instructor/01-introduction.html",
   "dateCreated": "2025-10-26",
-  "dateModified": "2025-10-21",
+  "dateModified": "2025-10-28",
   "datePublished": "2025-10-28"
 }
 

@@ -347,19 +347,63 @@
 <section id="01-introduction"><h2 class="section-heading"><a href="01-introduction.html">Introduction</a></h2>
 <hr class="half-width">
 <ul>
-<li>FIXME</li>
+<li>RNA-seq measures gene expression across the transcriptome, producing
+count data per gene per sample.</li>
+<li>The main goal of DE analysis is to identify genes with expression
+differences between conditions.</li>
+<li>Biological replicates are required for valid statistical inference;
+technical replicates must be combined or carefully handled.</li>
+<li>A “counts table” is the starting point for most RNA-seq analyses in
+R.</li>
+<li>Preparing a DGEList object and sample metadata correctly is
+essential for downstream analyses with limma and edgeR.</li>
+<li>Understanding the data structure and design factors early helps
+ensure trustworthy DE results later.</li>
 </ul></section><section id="02-filtering-visualisation-normalisation"><h2 class="section-heading"><a href="02-filtering-visualisation-normalisation.html">First steps: filtering, visualisation, and basic normalisation</a></h2>
 <hr class="half-width">
 <ul>
-<li>FIXME</li>
+<li>Filtering lowly expressed genes improves signal-to-noise and
+reliability of DE results.</li>
+<li>Library size influences count comparisons; larger libraries
+generally provide more statistical power.</li>
+<li>Visualisation (PCA, boxplots, RLE) is essential to detect technical
+variation and assess data quality.</li>
+<li>Log transformation of counts stabilises variance and makes visual
+patterns easier to interpret.</li>
+<li>Normalisation corrects for library size and compositional biases,
+allowing fair comparison across samples.</li>
+<li>TMM (trimmed mean of M-values) is a common method for normalising
+RNA-seq data using edgeR.</li>
+<li>Good normalisation removes unwanted technical variation while
+preserving biological signal.</li>
+<li>Persistent technical effects (e.g. batch effects) require more
+advanced correction strategies beyond basic normalisation.</li>
 </ul></section><section id="03-de-with-limma"><h2 class="section-heading"><a href="03-de-with-limma.html">Differential expression with limma</a></h2>
 <hr class="half-width">
 <ul>
-<li>FIXME</li>
+<li>RNA-seq data can be modelled with linear models after log
+transformation.</li>
+<li>The limma workflow estimates group means and contrasts, then tests
+for DE.</li>
+<li>Empirical Bayes moderation stabilises variances, improving
+reliability.</li>
+<li>Adjusted p-values (FDR) control false discoveries across many
+tests.</li>
+<li>limma-trend and limma-voom give similar results unless library sizes
+differ greatly.</li>
 </ul></section><section id="04-summary"><h2 class="section-heading"><a href="04-summary.html">Summary and exerciseVisualisation of results<a class="anchor" aria-label="anchor" href="#visualisation-of-results"></a>Getting data<a class="anchor" aria-label="anchor" href="#getting-data"></a></a></h2>
 <hr class="half-width">
 <ul>
-<li>FIXME</li>
+<li>The full DE workflow combines filtering, normalisation, modelling,
+and testing.</li>
+<li>limma-trend and limma-voom differ mainly in handling library size
+variability.</li>
+<li>Visualisations such as volcano plots, MD plots, and heatmaps
+summarise DE results clearly.</li>
+<li>Public repositories like GEO and GREIN provide accessible RNA-seq
+count data.</li>
+<li>Mastering reproducible code structure ensures robust and transparent
+RNA-seq analysis.</li>
 </ul></section>
 </div>
     </main>

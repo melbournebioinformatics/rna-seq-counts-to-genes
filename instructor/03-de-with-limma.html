@@ -313,7 +313,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Differential expression with limma</h1>
-        <p>Last updated on 2025-10-21 |
+        <p>Last updated on 2025-10-28 |
 
         <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/03-de-with-limma.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -334,7 +334,14 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>FIXME</li>
+<ul><li>How does the limma method identify differentially expressed
+genes?</li>
+<li>Why are linear models used to analyse RNA-seq data?</li>
+<li>What role does empirical Bayes moderation play in improving DE
+analysis?</li>
+<li>How can we assess whether DE results are trustworthy?</li>
+<li>What is the difference between the limma-trend and limma-voom
+approaches?</li>
 </ul></div>
 </div>
 </div>
@@ -342,7 +349,16 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>FIXME</li>
+<ul><li>Understand how RNA-seq data can be modelled using linear models in
+limma.</li>
+<li>Perform DE testing using moderated t-statistics and empirical
+Bayes.</li>
+<li>Interpret log-fold-changes, p-values, and adjusted p-values
+(FDR).</li>
+<li>Evaluate DE results with diagnostic plots (SA, MD, p-value
+histograms).</li>
+<li>Compare and choose between the limma-trend and limma-voom
+approaches.</li>
 </ul></div>
 </div>
 </div>
@@ -1095,7 +1111,16 @@ be seen here:</p>
 <span class="callout-header">Key Points</span>
 <div class="callout-inner">
 <div class="callout-content">
-<ul><li>FIXME</li>
+<ul><li>RNA-seq data can be modelled with linear models after log
+transformation.</li>
+<li>The limma workflow estimates group means and contrasts, then tests
+for DE.</li>
+<li>Empirical Bayes moderation stabilises variances, improving
+reliability.</li>
+<li>Adjusted p-values (FDR) control false discoveries across many
+tests.</li>
+<li>limma-trend and limma-voom give similar results unless library sizes
+differ greatly.</li>
 </ul></div>
 </div>
 </div>
@@ -1161,7 +1186,7 @@ any links that you are not going to use.
   "url": "melbournebioinformatics.github.io/uom-varnish/instructor/03-de-with-limma.html",
   "identifier": "melbournebioinformatics.github.io/uom-varnish/instructor/03-de-with-limma.html",
   "dateCreated": "2025-10-26",
-  "dateModified": "2025-10-21",
+  "dateModified": "2025-10-28",
   "datePublished": "2025-10-28"
 }
 

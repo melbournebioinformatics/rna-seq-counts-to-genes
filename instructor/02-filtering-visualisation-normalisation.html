@@ -310,7 +310,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>First steps: filtering, visualisation, and basic normalisation</h1>
-        <p>Last updated on 2025-10-21 |
+        <p>Last updated on 2025-10-28 |
 
         <a href="https://github.com/melbournebioinformatics/rna-seq-counts-to-genes/edit/main/episodes/02-filtering-visualisation-normalisation.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -331,7 +331,18 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>FIXME</li>
+<ul><li>Why should we filter out genes with little or no expression before
+differential expression analysis?</li>
+<li>What does “library size” mean, and why is it important to
+check?</li>
+<li>How can visualisation help us detect technical variation in RNA-seq
+data?</li>
+<li>What are the main sources of technical variation in RNA-seq
+experiments?</li>
+<li>How and why do we normalise RNA-seq data?</li>
+<li>What are CPM and TMM, and how do they help make samples
+comparable?</li>
+<li>How can we assess whether normalisation has worked correctly?</li>
 </ul></div>
 </div>
 </div>
@@ -339,7 +350,20 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>FIXME</li>
+<ul><li>Filter out lowly expressed genes to reduce noise and improve
+statistical power.</li>
+<li>Inspect and interpret library sizes to identify potential
+problems.</li>
+<li>Create and interpret PCA, boxplot, and RLE visualisations to assess
+technical variation.</li>
+<li>Explain the difference between biological and technical variation in
+RNA-seq data.</li>
+<li>Perform basic normalisation to correct for library size and
+compositional differences.</li>
+<li>Evaluate whether normalisation has successfully reduced unwanted
+technical variation.</li>
+<li>Recognise when batch effects or other confounding factors may
+require more advanced correction methods.</li>
 </ul></div>
 </div>
 </div>
@@ -655,7 +679,22 @@ likely get rubbish results.</p>
 <span class="callout-header">Key Points</span>
 <div class="callout-inner">
 <div class="callout-content">
-<ul><li>FIXME</li>
+<ul><li>Filtering lowly expressed genes improves signal-to-noise and
+reliability of DE results.</li>
+<li>Library size influences count comparisons; larger libraries
+generally provide more statistical power.</li>
+<li>Visualisation (PCA, boxplots, RLE) is essential to detect technical
+variation and assess data quality.</li>
+<li>Log transformation of counts stabilises variance and makes visual
+patterns easier to interpret.</li>
+<li>Normalisation corrects for library size and compositional biases,
+allowing fair comparison across samples.</li>
+<li>TMM (trimmed mean of M-values) is a common method for normalising
+RNA-seq data using edgeR.</li>
+<li>Good normalisation removes unwanted technical variation while
+preserving biological signal.</li>
+<li>Persistent technical effects (e.g. batch effects) require more
+advanced correction strategies beyond basic normalisation.</li>
 </ul></div>
 </div>
 </div>
@@ -721,7 +760,7 @@ any links that you are not going to use.
   "url": "melbournebioinformatics.github.io/uom-varnish/instructor/02-filtering-visualisation-normalisation.html",
   "identifier": "melbournebioinformatics.github.io/uom-varnish/instructor/02-filtering-visualisation-normalisation.html",
   "dateCreated": "2025-10-26",
-  "dateModified": "2025-10-21",
+  "dateModified": "2025-10-28",
   "datePublished": "2025-10-28"
 }
 
