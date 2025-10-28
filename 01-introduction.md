@@ -5,13 +5,22 @@ exercises: 0
 ---
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- FIXME
+- What is RNA-seq and what kind of biological questions can it answer?
+- What is a “counts table” and why is it central to RNA-seq data analysis?
+- Why are biological replicates essential for meaningful statistical analysis?
+- How can we organize RNA-seq count data in R for downstream analysis?
+- What preliminary steps and R packages are needed to begin a DE analysis?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- FIXME
+- Describe the overall workflow of RNA-seq from sequencing to count tables.
+- Explain the difference between biological and technical replicates and their impact on analysis.
+- Identify the key components of an RNA-seq count table.
+- Load and inspect RNA-seq data in R.
+- Organize data into a DGEList and prepare accompanying sample information.
+- Load the R packages needed for RNA-seq differential expression analysis.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -276,6 +285,11 @@ Persist objects between episodes
 
 :::::::::::::::::::::::::::::::::::::: keypoints
 
-- FIXME
+- RNA-seq measures gene expression across the transcriptome, producing count data per gene per sample.
+- The main goal of DE analysis is to identify genes with expression differences between conditions.
+- Biological replicates are required for valid statistical inference; technical replicates must be combined or carefully handled.
+- A “counts table” is the starting point for most RNA-seq analyses in R.
+- Preparing a DGEList object and sample metadata correctly is essential for downstream analyses with limma and edgeR.
+- Understanding the data structure and design factors early helps ensure trustworthy DE results later.
 
 ::::::::::::::::::::::::::::::::::::::

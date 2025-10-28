@@ -6,13 +6,21 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- FIXME
+- How can we summarise the key steps in an RNA-seq differential expression workflow?
+- When should we use limma-trend versus limma-voom?
+- How can we visualise and interpret DE results?
+- What plots help communicate DE findings effectively?
+- Where can we find RNA-seq count data to practise these analyses?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- FIXME
+- Consolidate the complete RNA-seq DE workflow from filtering to visualisation.
+- Apply both limma-trend and limma-voom to new comparisons independently.
+- Generate and interpret volcano, MD, and heatmap plots.
+- Recognise reliable sources for public RNA-seq count data.
+- Gain confidence reproducing and extending DE analyses.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -251,6 +259,10 @@ And have fun!
 
 :::::::::::::::::::::::::::::::::::::: keypoints
 
-- FIXME
+- The full DE workflow combines filtering, normalisation, modelling, and testing.
+- limma-trend and limma-voom differ mainly in handling library size variability.
+- Visualisations such as volcano plots, MD plots, and heatmaps summarise DE results clearly.
+- Public repositories like GEO and GREIN provide accessible RNA-seq count data.
+- Mastering reproducible code structure ensures robust and transparent RNA-seq analysis.
 
 ::::::::::::::::::::::::::::::::::::::

@@ -6,13 +6,25 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- FIXME
+- Why should we filter out genes with little or no expression before differential expression analysis?
+- What does “library size” mean, and why is it important to check?
+- How can visualisation help us detect technical variation in RNA-seq data?
+- What are the main sources of technical variation in RNA-seq experiments?
+- How and why do we normalise RNA-seq data?
+- What are CPM and TMM, and how do they help make samples comparable?
+- How can we assess whether normalisation has worked correctly?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- FIXME
+- Filter out lowly expressed genes to reduce noise and improve statistical power.
+- Inspect and interpret library sizes to identify potential problems.
+- Create and interpret PCA, boxplot, and RLE visualisations to assess technical variation.
+- Explain the difference between biological and technical variation in RNA-seq data.
+- Perform basic normalisation to correct for library size and compositional differences.
+- Evaluate whether normalisation has successfully reduced unwanted technical variation.
+- Recognise when batch effects or other confounding factors may require more advanced correction methods.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -270,6 +282,13 @@ The bottom line is this: if, after normalising for library size and composition,
 
 :::::::::::::::::::::::::::::::::::::: keypoints
 
-- FIXME
+- Filtering lowly expressed genes improves signal-to-noise and reliability of DE results.
+- Library size influences count comparisons; larger libraries generally provide more statistical power.
+- Visualisation (PCA, boxplots, RLE) is essential to detect technical variation and assess data quality.
+- Log transformation of counts stabilises variance and makes visual patterns easier to interpret.
+- Normalisation corrects for library size and compositional biases, allowing fair comparison across samples.
+- TMM (trimmed mean of M-values) is a common method for normalising RNA-seq data using edgeR.
+- Good normalisation removes unwanted technical variation while preserving biological signal.
+- Persistent technical effects (e.g. batch effects) require more advanced correction strategies beyond basic normalisation.
 
 ::::::::::::::::::::::::::::::::::::::
