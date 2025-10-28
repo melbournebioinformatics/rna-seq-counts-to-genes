@@ -4,17 +4,13 @@ title: Setup
 
 Please follow the steps below and install the required software **before** the scheduled workshop.
 
-<!--
-FIXME: Setup instructions live in this document. Please specify the tools and
-the data sets the Learner needs to have installed.
 
 ## Data Sets
 
-FIXME: place any data you want learners to use in `episodes/data` and then use
-       a relative link ( [data zip file](data/lesson-data.zip) ) to provide a
-       link to it, replacing the example.com link.
-Download the [data zip file](https://example.com/FIXME) and unzip it to your Desktop
--->
+**Data:** [Obers et al. "Retinoic acid and TGF-β orchestrate organ-specific programs of tissue residency", *Immunity* (2024)](https://www.cell.com/immunity/abstract/S1074-7613(24)00459-X)
+
+Download the [GSE232852_CountsTable.txt data file](episodes/data/GSE232852_CountsTable.txt) and place it in the workshop folder.
+
 ## RStudio Setup
 
 We use RStudio for coding in R.
