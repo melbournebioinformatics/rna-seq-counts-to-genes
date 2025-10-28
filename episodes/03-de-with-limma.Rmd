@@ -6,13 +6,21 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- FIXME
+- How does the limma method identify differentially expressed genes?
+- Why are linear models used to analyse RNA-seq data?
+- What role does empirical Bayes moderation play in improving DE analysis?
+- How can we assess whether DE results are trustworthy?
+- What is the difference between the limma-trend and limma-voom approaches?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- FIXME
+- Understand how RNA-seq data can be modelled using linear models in limma.
+- Perform DE testing using moderated t-statistics and empirical Bayes.
+- Interpret log-fold-changes, p-values, and adjusted p-values (FDR).
+- Evaluate DE results with diagnostic plots (SA, MD, p-value histograms).
+- Compare and choose between the limma-trend and limma-voom approaches.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -397,6 +405,10 @@ save.image(file="data/03-de-with-limma.RData")
 
 :::::::::::::::::::::::::::::::::::::: keypoints
 
-- FIXME
+- RNA-seq data can be modelled with linear models after log transformation.
+- The limma workflow estimates group means and contrasts, then tests for DE.
+- Empirical Bayes moderation stabilises variances, improving reliability.
+- Adjusted p-values (FDR) control false discoveries across many tests.
+- limma-trend and limma-voom give similar results unless library sizes differ greatly.
 
 ::::::::::::::::::::::::::::::::::::::
