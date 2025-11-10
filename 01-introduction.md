@@ -34,7 +34,20 @@ The main aim of this workshop is to show you how to go from a "counts table" of 
 
 The second motivation is important. In our context, rubbish DE results take two forms: *missed discoveries* (i.e. failing to infer a gene to be DE when it really is DE) or *false discoveries* (i.e. inferring a gene to be DE when it's actually not DE). Rubbish results are a real danger in the following way: you can competently do all the steps in this workshop and still arrive at rubbish! How is this possible? Because some data sets aren't amenable to the kinds of analyses we'll be discussing, and it's important to know when this occurs (if you care about the results!). Such data sets are typically problematic or difficult in some way and will require techniques and strategies beyond those contained in this workshop to obtain non-rubbish results. The good news, however, is that many data sets are amenable to the analyses we'll discuss.
 
-*Important note*. Our starting point for RNA-seq analysis will be a `table of counts'; we won't begin from raw sequencing data (in the form of .fastq files). There's several reasons for this. Firstly, going from raw sequencing data to a table of counts can be computationally intensive and a little involved. Secondly, because of this, workshops often fail to spend enough time on the (more important) statistical part that comes after this, i.e. analysing the table of counts. Thirdly, many people have no interest in processing raw sequencing data; they're simply interested in analysing one of vast number of publicly available counts tables of RNA-seq data. If you've generated raw sequencing data of your own (or want to look at publicly available raw sequencing files) then you should look at other workshops for how to go from this data to a table of counts. But, if you've got a table of counts that you want to analyse, then this is the workshop for you!
+::::::::::::::::::::::::::::::::::::: callout
+
+Our starting point for RNA-seq analysis will be a **table of counts**; we won't begin from raw sequencing data (in the form of .fastq files). There's several reasons for this:  
+
+1. Firstly, going from **raw sequencing data** to a **table of counts** can be computationally intensive and a little involved.  
+
+2. Secondly, because of this, **workshops often fail to spend enough time** on the (more important) statistical part that comes after this, ie. analysing the table of counts.   
+
+3. Thirdly, many people have no interest in processing raw sequencing data; they're simply interested in analysing one of vast number of publicly available counts tables of RNA-seq data. If you've generated raw sequencing data of your own (or want to look at publicly available raw sequencing files) then you should look at other workshops for how to go from this data to a table of counts*. But, if you've got a table of counts that you want to analyse, then this is the workshop for you!
+
+*The [nf-core/rnaseq pipeline](https://nf-co.re/rnaseq/latest/) may be a good starting point if that is your goal.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Some background
 
