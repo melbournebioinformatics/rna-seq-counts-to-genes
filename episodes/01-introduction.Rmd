@@ -114,13 +114,6 @@ Here's what we have:
 
 Before we can start analysing this data, there's four preliminaries:
 
-```{r, echo=FALSE}
-
-library(stringi)
-library(renv)
-```
-
-
 
 1. Let's load the R packages we'll be using (note: if you don't have the relevant packages installed, then you'll need to run the commented code):
 ```{r}
