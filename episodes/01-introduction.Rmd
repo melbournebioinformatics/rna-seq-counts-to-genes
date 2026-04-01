@@ -117,7 +117,7 @@ Before we can start analysing this data, there's four preliminaries:
 ```{r, echo=FALSE}
 
 library(stringi)
-
+library(renv)
 ```
 
 
