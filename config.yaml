@@ -7,7 +7,7 @@
 # mb: Melbourne Bioinformatics
 # mig: Melbourne Integrative Genomics
 # wehi: Walter and Eliza Hall Institute
-carpentry: 'mb'
+carpentry: 'uom'
 
 # Alt-text description of the lesson.
 carpentry_description: 'RNA-seq: from counts to differentially expressed genes'
