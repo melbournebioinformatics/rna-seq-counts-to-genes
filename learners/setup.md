@@ -11,11 +11,17 @@ Please follow the steps below and install the required software **before** the s
 
 Download the [GSE232852_CountsTable.txt data file](episodes/data/GSE232852_CountsTable.txt) and place it in the workshop folder.
 
+
+
+
+
 ## RStudio Setup
 
 We use RStudio for coding in R.
 
 [Click here and follow the instructions](https://posit.co/download/rstudio-desktop/) to install RStudio Desktop in your system.
+
+If you are unfamiliar with R, we recommend going through our [Intro to R for Biologists](https://mbite.mdhs.unimelb.edu.au/intro-to-r/) training materials.
 
 ::::::::::::::::: discussion
 
