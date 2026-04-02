@@ -346,7 +346,7 @@ These are made as follows:
 plotSA(fit2)
 ```
 
-<img src="fig/03-de-with-limma-rendered-unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="fig/03-de-with-limma-rendered-unnamed-chunk-9-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 par(mfcol=c(1,2))
@@ -356,7 +356,7 @@ plotMD(fit2, coef="TGFb_WT", status=dt[,"TGFb_WT"], cex=0.6, main="MD-plot: TGFb
 abline(h=0, lwd=2, col="green2")
 ```
 
-<img src="fig/03-de-with-limma-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="fig/03-de-with-limma-rendered-unnamed-chunk-10-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 par(mfcol=c(1,2))
@@ -364,7 +364,7 @@ hist(fit2$p.value[,"RA_WT"], col="grey", xlab="p-value", main="p-value histogram
 hist(fit2$p.value[,"TGFb_WT"], col="grey", xlab="p-value", main="p-value histogram: TGFb vs WT")
 ```
 
-<img src="fig/03-de-with-limma-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="fig/03-de-with-limma-rendered-unnamed-chunk-11-1.png" alt="" style="display: block; margin: auto;" />
 
 These visualisations look as they should in this case. However, if you produce plots that don't look reasonably close to these, then something isn't right. Depending on how bad they look, the results will likely contain missed and/or false discoveries---they'll be rubbish. The p-value histograms are particularly important. Consider two real examples from different data sets below:
 
@@ -577,7 +577,7 @@ vennDiagram(df2,
             circle.col=c("purple","turquoise"))
 ```
 
-<img src="fig/03-de-with-limma-rendered-unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="fig/03-de-with-limma-rendered-unnamed-chunk-16-1.png" alt="" style="display: block; margin: auto;" />
 
 
 

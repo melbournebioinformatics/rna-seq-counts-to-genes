@@ -86,7 +86,7 @@ barplot(lib.size.millons, las=2, cex.names=0.8, main="Library size (millons)")
 abline(h=20, lwd=2, col="red2")
 ```
 
-<img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
+<img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-3-1.png" alt="" style="display: block; margin: auto;" />
 
 Library size is an important quantity. One reason to check it is because bigger is usually better: 5 million or less (not that good); 10-15 million (better); 20+ million (much better). This is because (1) it's a limited resource that needs to be "shared" between all the genes (in proportion to their expression); and (2) bigger counts generally means better statistical properties (e.g. power to detect DE). Another reason to check is because it will help signpost what tools you should use to analyse your data (more about this later).
 
@@ -123,12 +123,12 @@ Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
 ℹ See also `vignette("ggplot2-in-packages")` for more information.
 ℹ The deprecated feature was likely used in the ggfortify package.
   Please report the issue at <https://github.com/sinhrks/ggfortify/issues>.
-This warning is displayed once every 8 hours.
+This warning is displayed once per session.
 Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 generated.
 ```
 
-<img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+<img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-4-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 # boxplot and RLE plot (simple base R versions; they're generally not for publication)
@@ -143,7 +143,7 @@ boxplot(RLE, col=as.character(cols.group), outline=FALSE, las=2, cex.axis=0.6, m
 abline(h=0, col="grey20", lwd=3, lty=1)
 ```
 
-<img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+<img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-5-1.png" alt="" style="display: block; margin: auto;" />
 
 Note that we made these plots with log transformed counts, not the counts themselves (the reason for this is technical: the log transformation roughly removes the strong mean-variance relationship inherent in RNA-seq data, something we don't want driving our visualisations). 
 
@@ -225,7 +225,7 @@ autoplot(pca, data.frame(group=group), col='group', size=4) +
   ggtitle("PCA plot")
 ```
 
-<img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-7-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 # boxplot and RLE plot (simple base R versions; they're generally not for publication)
@@ -240,7 +240,7 @@ boxplot(RLE, col=as.character(cols.group), outline=FALSE, las=2, cex.axis=0.6, m
 abline(h=0, col="grey20", lwd=3, lty=1)
 ```
 
-<img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+<img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-8-1.png" alt="" style="display: block; margin: auto;" />
 
 Note that we can now use the cpm function to calculate logged data. The PCA plot looks better: the replicates are clustered more tightly (technical variation has been removed), and the biological groups are more separated (biological differences between groups are maintained, actually improved). Moreover, the boxplots and RLE plot are looking much better: the boxplots are lined up, and the RLE plot medians are centered on zero and the boxes are roughly similar in size.
 

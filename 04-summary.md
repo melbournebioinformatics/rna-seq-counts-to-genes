@@ -214,7 +214,7 @@ ggplot(data=df, aes(x=logFC, y=-log10(p.value))) +
   labs(title="Volcano: RA vs WT", x="log2(fold-change)", y="-log10(p-value)")
 ```
 
-<img src="fig/04-summary-rendered-unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-summary-rendered-unnamed-chunk-6-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 # basic MD plot
@@ -226,7 +226,7 @@ ggplot(data=df, aes(x=A, y=logFC)) +
   labs(title="Volcano: RA vs WT", x="Average log-expression", y="log2(fold-change)")
 ```
 
-<img src="fig/04-summary-rendered-unnamed-chunk-6-2.png" style="display: block; margin: auto;" />
+<img src="fig/04-summary-rendered-unnamed-chunk-6-2.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 # organize data frame for heatmap
@@ -247,7 +247,7 @@ pheatmap(
   fontsize_row=6)
 ```
 
-<img src="fig/04-summary-rendered-unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-summary-rendered-unnamed-chunk-7-1.png" alt="" style="display: block; margin: auto;" />
 
 # Getting data
 
