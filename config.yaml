@@ -23,7 +23,7 @@ keywords: 'transcriptomics, differential expression, high dimensional, multivari
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'alpha'
+life_cycle: 'beta'
 
 # License of the lesson
 license: 'CC-BY 4.0'
