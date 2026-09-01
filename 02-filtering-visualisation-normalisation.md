@@ -117,17 +117,6 @@ autoplot(pca, data.frame(group=group), col='group', size=4) +
   ggtitle("PCA plot")
 ```
 
-``` warning
-Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
-ℹ Please use tidy evaluation idioms with `aes()`.
-ℹ See also `vignette("ggplot2-in-packages")` for more information.
-ℹ The deprecated feature was likely used in the ggfortify package.
-  Please report the issue at <https://github.com/sinhrks/ggfortify/issues>.
-This warning is displayed once per session.
-Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-generated.
-```
-
 <img src="fig/02-filtering-visualisation-normalisation-rendered-unnamed-chunk-4-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
